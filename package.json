@@ -4,7 +4,7 @@
   "description": "Propuesta Kenco · crescō · static one-pager encriptado con StatiCrypt",
   "private": false,
   "scripts": {
-    "build": "staticrypt proposal/kenco-onepager.html -p \"${STATICRYPT_PASSWORD:-set-me-in-env}\" -d dist --short --remember 30 -t tools/staticrypt-template.html --template-title \"kenco × crescō\" --template-instructions \"Documento privado · v1.0 · mayo 2026\" --template-button \"Abrir propuesta\" --template-placeholder \"\" --template-error \"Contraseña incorrecta\" && mv dist/kenco-onepager.html dist/index.html && cp -R public/. dist/"
+    "build": "staticrypt proposal/kenco-onepager.html -p \"${STATICRYPT_PASSWORD:-set-me-in-env}\" -d dist --short --remember 30 -t tools/staticrypt-template.html --template-title \"kenco × crescō\" --template-instructions \"v1.0 · mayo 2026 · ingresa la contraseña para abrir la propuesta\" --template-button \"Abrir propuesta\" --template-placeholder \"\" --template-error \"Contraseña incorrecta\" && mv dist/kenco-onepager.html dist/index.html && cp -R public/. dist/"
   },
   "devDependencies": {
     "staticrypt": "^3.5.4"
