@@ -1,0 +1,1786 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#EFEAE0">
+
+<title>crescō · propuesta Kenco · una página</title>
+<meta name="description" content="Propuesta Kenco · piloto 2026 · resumen ejecutivo en una página">
+<meta name="author" content="Carlos Carrasquero">
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,450;0,500;0,600;1,400;1,500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+
+<style>
+  :root {
+    --bg: #EFEAE0;
+    --paper: #F7F3EA;
+    --ink: #1A1612;
+    --ink-soft: #5C544A;
+    --accent: #3D5240;
+    --accent-soft: #DAE2D9;
+    --accent-deep: #2A3B2D;
+    --line: #D4CCBC;
+    --line-soft: #E2DBCC;
+    --muted: #8C8377;
+    --sans: 'Inter', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    padding: 24px 0;
+  }
+
+  /* ═════ wordmark ═════ */
+  .cresco-mark {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 19px;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    display: inline-flex;
+    align-items: baseline;
+    gap: 2px;
+    line-height: 1;
+  }
+  .cresco-mark em {
+    font-style: normal;
+    color: var(--accent);
+    margin-left: -2px;
+  }
+
+  /* ═════ co-brand lockup · cresco × kenco ═════ */
+  .lockup {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .lockup .x {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    text-transform: lowercase;
+    padding-bottom: 2px;
+  }
+  .kenco-mark {
+    display: inline-flex;
+    align-items: center;
+    height: 38px;
+  }
+  .kenco-mark svg {
+    height: 38px;
+    width: auto;
+    display: block;
+    shape-rendering: geometricPrecision;
+  }
+  .kenco-mark svg path { fill: var(--ink); }
+  .kenco-mark svg path:last-child { fill: var(--accent); }
+
+  /* ═════ página A4 única ═════ */
+  .page {
+    width: 210mm;
+    height: 297mm;
+    padding: 10mm 16mm 9mm;
+    background: var(--bg);
+    border: 0.5pt solid var(--line);
+    box-shadow: 0 1px 3px rgba(26,22,18,0.06);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 3.5mm;
+    overflow: hidden;
+  }
+
+  /* ═════ TOP BAR ═════ */
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 7mm;
+    border-bottom: 0.5pt solid var(--line);
+  }
+  .top-meta {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: right;
+    line-height: 1.55;
+  }
+  .top-meta b { color: var(--ink); font-weight: 500; }
+  .top-meta .pulse {
+    display: inline-block;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+
+  /* ═════ HERO ═════ */
+  .hero { display: flex; flex-direction: column; gap: 6px; }
+
+  /* tech-strip · pills MCP / Claude / Claude Code / Agentes + capacitación */
+  .tech-strip {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 0.5pt solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .tech-strip .ts-label {
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .tech-strip .ts-label.end { margin-left: auto; }
+  .tech-strip .tag {
+    background: var(--paper);
+    border: 0.5pt solid var(--accent);
+    color: var(--accent-deep);
+    padding: 2px 9px;
+    border-radius: 99px;
+    font-weight: 500;
+    font-size: 8.5px;
+  }
+  .tech-strip .tag.solid {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+  }
+
+  /* closing mission · banda tinta full-bleed al final del page */
+  .closing-mission {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--ink);
+    color: var(--bg);
+    padding: 13px 16mm;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: center;
+  }
+  .closing-mission .quote {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: -0.025em;
+    line-height: 1.3;
+    color: var(--bg);
+  }
+  .closing-mission .quote em {
+    font-style: italic;
+    color: var(--accent-soft);
+    font-weight: 400;
+  }
+  .closing-mission .attr {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: rgba(239,234,224,0.55);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: right;
+    line-height: 1.55;
+  }
+  .closing-mission .attr b { color: var(--bg); font-weight: 500; }
+  .closing-mission .attr .mk em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 2px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 24px;
+    height: 0.5pt;
+    background: var(--accent);
+  }
+
+  .hero-title {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 38px;
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+    color: var(--ink);
+    max-width: 92%;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--ink-soft);
+    font-weight: 400;
+  }
+  .hero-title .ac { color: var(--accent); }
+
+  .hero-sub {
+    font-family: var(--sans);
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 70ch;
+    margin-top: 2px;
+  }
+
+  /* stats strip */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 0.5pt solid var(--line);
+    border-bottom: 0.5pt solid var(--line);
+    padding: 7px 0;
+    margin-top: 2px;
+  }
+  .stat {
+    padding: 0 16px;
+    border-right: 0.5pt solid var(--line-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .stat:first-child { padding-left: 0; }
+  .stat:last-child { border-right: none; }
+  .stat .l {
+    font-family: var(--mono);
+    font-size: 8.5px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .stat .v {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 17px;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .stat .v em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  /* ═════ Section header reusable ═════ */
+  .sec-head {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .sec-head::before {
+    content: "";
+    width: 16px;
+    height: 0.5pt;
+    background: var(--accent);
+  }
+
+  /* ═════ COLUMNAS ═════ */
+  .cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14mm;
+  }
+
+  .col h3 {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 14.5px;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin-bottom: 6px;
+    line-height: 1.25;
+  }
+  .col h3 em {
+    font-style: italic;
+    color: var(--ink-soft);
+    font-weight: 400;
+  }
+
+  ul.bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  ul.bullets li {
+    font-family: var(--sans);
+    font-size: 10.5px;
+    line-height: 1.45;
+    color: var(--ink-soft);
+    padding-left: 12px;
+    position: relative;
+  }
+  ul.bullets li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  ul.bullets li strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+  ul.bullets li em {
+    font-style: italic;
+    color: var(--ink);
+  }
+  ul.bullets li.dim::before {
+    background: transparent;
+    border: 0.5pt solid var(--accent);
+  }
+
+  /* ═════ EQUIPO · 3 ingenieros + agentes claude ═════ */
+  .team-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .team-card {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 8px;
+    padding: 7px 10px;
+    background: var(--paper);
+    border: 0.5pt solid var(--line);
+    border-radius: 4px;
+    align-items: center;
+  }
+  .team-card.lead {
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+  .team-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+    display: grid;
+    place-items: center;
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 9px;
+    letter-spacing: -0.02em;
+  }
+  .team-card.lead .team-avatar {
+    background: var(--accent);
+    color: var(--bg);
+  }
+  .team-info { display: flex; flex-direction: column; gap: 0; min-width: 0; }
+  .team-name {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 10.5px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .team-card.lead .team-name { color: var(--bg); }
+  .team-role {
+    font-family: var(--mono);
+    font-size: 7.5px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-top: 1px;
+  }
+  .team-card.lead .team-role { color: rgba(239,234,224,0.55); }
+  .team-cc {
+    font-family: var(--mono);
+    font-size: 7.5px;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .team-card.lead .team-cc { color: var(--accent-soft); }
+  .team-cc::before {
+    content: "+";
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .team-card.lead .team-cc::before { color: var(--accent-soft); }
+
+  /* ═════ MINI GANTT ═════ */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .tl-row {
+    display: grid;
+    grid-template-columns: 110px 1fr 80px;
+    gap: 14px;
+    align-items: center;
+  }
+  .tl-row.clickable {
+    cursor: pointer;
+    padding: 4px 8px;
+    margin: -4px -8px;
+    border-radius: 3px;
+    transition: background 120ms ease;
+  }
+  .tl-row.clickable:hover {
+    background: rgba(61, 82, 64, 0.06);
+  }
+  .tl-row.clickable:hover .tl-name {
+    color: var(--accent);
+  }
+  .tl-row.clickable:hover .tl-bar {
+    filter: brightness(1.08);
+  }
+  .tl-row.clickable:focus-visible {
+    outline: 1px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .tl-name {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .tl-name .code {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-right: 6px;
+  }
+  .tl-bar-track {
+    height: 14px;
+    background: var(--paper);
+    border-radius: 2px;
+    border: 0.5pt solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .tl-bar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: var(--accent);
+    border-radius: 1px;
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+    color: var(--bg);
+    font-family: var(--mono);
+    font-size: 8px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .tl-bar.dim {
+    background: transparent;
+    border: 0.5pt dashed var(--accent);
+    color: var(--accent);
+  }
+  .tl-bar.big {
+    background: var(--accent);
+  }
+  .tl-amt {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+    text-align: right;
+    font-weight: 500;
+  }
+  .tl-amt .pct {
+    font-size: 8.5px;
+    color: var(--muted);
+    display: block;
+    letter-spacing: 0.08em;
+    margin-bottom: 1px;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  .tl-axis {
+    display: grid;
+    grid-template-columns: 110px 1fr 80px;
+    gap: 14px;
+    align-items: center;
+    margin-top: 4px;
+  }
+  .tl-axis .ticks {
+    display: grid;
+    grid-template-columns: repeat(22, 1fr);
+    font-family: var(--mono);
+    font-size: 7.5px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  .tl-axis .ticks span { text-align: center; }
+  .tl-axis .ticks span.q { color: var(--ink); font-weight: 500; }
+
+  .tl-total {
+    margin-top: 8px;
+    padding-top: 10px;
+    border-top: 0.5pt solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 18px;
+    font-family: var(--sans);
+    font-size: 12px;
+  }
+  .tl-total .label {
+    color: var(--ink-soft);
+    font-style: italic;
+    flex: 1;
+    min-width: 0;
+    line-height: 1.4;
+  }
+  .tl-total .total {
+    flex-shrink: 0;
+  }
+  .tl-total .label b {
+    font-style: normal;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .tl-total .total {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+  }
+  .tl-total .total .cur {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    margin-right: 6px;
+    font-weight: 400;
+  }
+
+  /* ═════ FOOTER del one-pager ═════ */
+  .footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 4mm;
+    border-top: 0.5pt solid var(--line);
+    background: var(--bg);
+    z-index: 2;
+  }
+  .footer .left {
+    max-width: 60%;
+  }
+  .footer .cta-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .footer .cta-text {
+    font-family: var(--sans);
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  .footer .cta-text strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .footer .sig {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .footer .sig-line {
+    font-family: var(--mono);
+    font-size: 8.5px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .footer .sig-name {
+    font-family: var(--sans);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  .footer .sig-role {
+    font-family: var(--mono);
+    font-size: 8.5px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ═════ PHASE PAGE SYSTEM (hidden by default, shown via hash router) ═════ */
+  .onepager,
+  .phase-page {
+    opacity: 1;
+    transition: opacity 180ms ease;
+  }
+  body.routing .onepager,
+  body.routing .phase-page {
+    opacity: 0;
+  }
+  .phase-page {
+    display: none;
+  }
+  body.view-phase .onepager {
+    display: none;
+  }
+
+  /* ═════ PHASE BLUEPRINT LAYOUT ═════ */
+  .phase-breadcrumb {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding-bottom: 6mm;
+    border-bottom: 0.5pt solid var(--line);
+  }
+  .phase-breadcrumb .sep { margin: 0 6px; opacity: 0.5; }
+  .phase-breadcrumb .current { color: var(--accent); font-weight: 500; }
+
+  .phase-hero {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 4mm 0 6mm;
+  }
+  .phase-title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .phase-code-mark {
+    font-family: var(--mono);
+    font-weight: 500;
+    font-size: 32px;
+    color: var(--accent);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .phase-title {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 32px;
+    letter-spacing: -0.025em;
+    line-height: 1;
+    color: var(--ink);
+  }
+  .phase-subtitle {
+    font-family: var(--sans);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.4;
+    margin-top: 4px;
+  }
+
+  .phase-mini-timeline {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5mm 0;
+    border-top: 0.5pt solid var(--line);
+    border-bottom: 0.5pt solid var(--line);
+  }
+  .phase-mini-bar {
+    flex: 1;
+    height: 10px;
+    background: var(--paper);
+    border: 0.5pt solid var(--line);
+    border-radius: 1px;
+    position: relative;
+    overflow: hidden;
+  }
+  .phase-mini-fill {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: var(--accent);
+    border-radius: 1px;
+  }
+  .phase-mini-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .phase-mini-label.cur {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .phase-section {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 16px;
+    padding: 5mm 0;
+    border-top: 0.5pt solid var(--line-soft);
+  }
+  .phase-section:first-of-type { border-top: none; }
+  .phase-section-lbl {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding-top: 2px;
+    font-weight: 500;
+  }
+  .phase-section-body {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  .phase-section-body strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .phase-section-body em {
+    font-style: italic;
+    color: var(--ink);
+  }
+  .phase-section-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 6px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .phase-section-body li {
+    padding-left: 12px;
+    position: relative;
+  }
+  .phase-section-body li::before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .phase-nav {
+    margin-top: auto;
+    padding-top: 5mm;
+    border-top: 0.5pt solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .phase-nav a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 120ms ease;
+  }
+  .phase-nav a:hover { color: var(--accent); }
+  .phase-nav .nxt { color: var(--ink); font-weight: 500; }
+  .phase-nav .nxt:hover { color: var(--accent); }
+
+  .phase-back {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 120ms ease;
+  }
+  .phase-back:hover { color: var(--accent); }
+
+  /* ═════ RESPONSIVE · tablet y mobile ═════ */
+  @media (max-width: 900px) {
+    body { padding: 0; align-items: stretch; }
+
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      height: auto;
+      padding: 24px 20px 32px;
+      border: none;
+      box-shadow: none;
+      gap: 20px;
+      overflow: visible;
+    }
+
+    /* TOP BAR */
+    .top {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      padding-bottom: 16px;
+    }
+    .top-meta { text-align: left; }
+
+    /* HERO */
+    .hero-title {
+      font-size: 28px;
+      max-width: 100%;
+      line-height: 1.1;
+    }
+    .hero-sub { font-size: 13px; line-height: 1.55; }
+
+    /* TECH STRIP */
+    .tech-strip {
+      gap: 6px;
+    }
+    .tech-strip .ts-label.end {
+      margin-left: 0;
+      width: 100%;
+      margin-top: 4px;
+    }
+
+    /* STATS · 4 cols → 2x2 */
+    .stats {
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 0;
+      padding: 12px 0;
+    }
+    .stat {
+      padding: 4px 12px;
+      border-right: 0.5pt solid var(--line-soft);
+      border-bottom: none;
+    }
+    .stat:nth-child(2n) { border-right: none; padding-right: 0; }
+    .stat:nth-child(2n+1) { padding-left: 0; }
+    .stat .v { font-size: 15px; }
+
+    /* COLS · 2 → 1 */
+    .cols {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    /* GANTT */
+    .tl-row {
+      grid-template-columns: 88px 1fr 56px;
+      gap: 8px;
+    }
+    .tl-row.clickable { padding: 6px 6px; margin: -6px -6px; }
+    .tl-name { font-size: 10px; letter-spacing: -0.005em; }
+    .tl-name .code { font-size: 8px; margin-right: 4px; }
+    .tl-bar { font-size: 7px; padding: 0 4px; }
+    .tl-amt { font-size: 9.5px; }
+    .tl-amt .pct { font-size: 7px; }
+
+    .tl-axis {
+      grid-template-columns: 88px 1fr 56px;
+      gap: 8px;
+    }
+    /* solo mostramos los hitos clave en mobile */
+    .tl-axis .ticks {
+      grid-template-columns: repeat(6, 1fr);
+      font-size: 7.5px;
+    }
+    .tl-axis .ticks span:not(.q) { display: none; }
+
+    .tl-total {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .tl-total .total { font-size: 20px; }
+
+    /* FOOTER */
+    .footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .footer .left { max-width: 100%; }
+    .footer .sig {
+      text-align: left;
+      align-items: flex-start;
+    }
+    .footer .cta-text { font-size: 13px; }
+
+    /* PHASE VIEW */
+    .phase-breadcrumb {
+      font-size: 9px;
+      padding-bottom: 16px;
+      line-height: 1.5;
+    }
+    .phase-hero { padding: 12px 0 20px; }
+    .phase-title-row {
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .phase-code-mark { font-size: 24px; }
+    .phase-title { font-size: 24px; }
+    .phase-subtitle { font-size: 12.5px; }
+
+    .phase-mini-timeline {
+      padding: 12px 0;
+      gap: 8px;
+    }
+    .phase-mini-label { font-size: 8.5px; }
+
+    /* SECCIONES BLUEPRINT · label arriba, contenido abajo */
+    .phase-section {
+      grid-template-columns: 1fr;
+      gap: 6px;
+      padding: 14px 0;
+    }
+    .phase-section-lbl {
+      font-size: 9px;
+      padding-top: 0;
+    }
+    .phase-section-body { font-size: 13px; }
+
+    .phase-nav {
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 9.5px;
+    }
+  }
+
+  /* mobile chico · iPhone SE etc */
+  @media (max-width: 420px) {
+    .page { padding: 20px 16px 28px; }
+    .hero-title { font-size: 24px; }
+    .stat .v { font-size: 14px; }
+    .tl-row { grid-template-columns: 72px 1fr 48px; gap: 6px; }
+    .tl-axis { grid-template-columns: 72px 1fr 48px; gap: 6px; }
+    .tl-bar { font-size: 6.5px; padding: 0 3px; }
+    .tl-name { font-size: 9.5px; }
+    .tl-amt { font-size: 9px; }
+    .phase-title { font-size: 22px; }
+    .phase-code-mark { font-size: 22px; }
+  }
+
+  @media print {
+    body { padding: 0; background: white; }
+
+    .page {
+      box-shadow: none;
+      border: none;
+      page-break-after: always;
+    }
+
+    /* In print, ALL pages render — the one-pager plus all 5 phase pages */
+    .phase-page,
+    body.view-phase .onepager {
+      display: flex !important;
+    }
+
+    /* Hide all interactive affordances in print */
+    .tl-row.clickable {
+      cursor: default;
+      padding: 0;
+      margin: 0;
+      background: transparent !important;
+    }
+    .phase-back,
+    .phase-nav {
+      display: none !important;
+    }
+
+    @page { size: A4; margin: 0; }
+  }
+</style>
+</head>
+<body>
+
+<section class="page onepager">
+
+  <!-- TOP BAR -->
+  <div class="top">
+    <span class="lockup">
+      <span class="cresco-mark">crescō<em>.</em></span>
+      <span class="x">×</span>
+      <span class="kenco-mark" aria-label="Kenco">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1417.32 708.66"><path d="M404.41 263.83h-81.14l-63.44 89.67H258V220.93h-73.2V474.9H258v-85.4h1.83l65.88 85.4h88.46l-86.02-108.58z"></path><path d="M502.3 258.95c-67.71 0-114.68 46.97-114.68 110.41 0 62.22 45.75 111.63 124.44 111.63 54.9 0 80.52-24.4 80.52-24.4l-23.18-45.75s-19.52 14.03-54.29 14.03c-29.28 0-51.24-12.81-56.73-42.09h151.29s.61-7.32.61-15.25c-.01-64.66-40.88-108.58-107.98-108.58zm-43.31 87.84c5.49-23.79 21.35-34.77 42.7-34.77 22.57 0 37.21 15.25 39.65 34.77h-82.35z"></path><path d="M997.71 419.39c-32.33 0-54.9-19.52-54.9-50.02 0-30.5 22.57-50.02 54.9-50.02 25.62 0 42.09 10.98 42.09 10.98l20.74-53.68s-22.57-17.69-69.54-17.69c-73.81 0-122.01 47.58-122.01 110.41 0 62.22 48.19 110.41 122.01 110.41 46.97 0 68.32-17.69 68.32-17.69l-19.52-53.68c.01 0-16.47 10.98-42.09 10.98z"></path><path d="M1175.56 258.95c-65.88 0-119.57 43.92-119.57 111.63 0 66.49 53.68 109.19 119.57 109.19 65.88 0 120.18-42.7 120.18-109.19-.01-67.71-54.3-111.63-120.18-111.63zm0 162.88c-28.67 0-48.19-20.74-48.19-52.46 0-31.11 19.52-52.46 48.19-52.46 29.28 0 48.8 21.35 48.8 52.46 0 31.72-19.52 52.46-48.8 52.46z"></path><path d="M626.31 263.91v210.91h73.09V330.57h80.14v144.25h73.09V330.57l-73.09-66.66z"></path></svg>
+      </span>
+    </span>
+    <div class="top-meta">
+      <span class="pulse"></span><b>Resumen ejecutivo · una página</b><br>
+      Propuesta Kenco · v1.0 · mayo 2026 · documento privado
+    </div>
+  </div>
+
+  <!-- HERO · F2 · Fase 1 + tech-strip Anthropic -->
+  <div class="hero">
+    <span class="eyebrow">Kenco OS</span>
+    <h1 class="hero-title">
+      Sistema Operativo de Kenco - Módulo de Imprenta Digital<br>
+    </h1>
+    <p class="hero-sub">
+      El presente proyecto propone la construcción del primer módulo del Sistema Operativo de Kenco: Imprenta Digital Inteligente. Contará también con una landing pública optimizada para marketing, whatsapp con atención automática sin perder esencia humana y lenguaje de branding listo para que la AI sepa cómo es Kenco · <b style="font-style:normal;font-weight:500;color:var(--ink)">70% del esfuerzo en el desarrollo del módulo de imprenta digital.</b> Sobre esta base, se construyen el resto de los módulos de Kenco.
+    </p>
+
+    <div class="tech-strip">
+      <span class="ts-label">Preparado para</span>
+      <span class="tag solid">Ecosistema Anthropic (Claude, Cowork, Claude Code, Claude Design)</span>
+      <span class="tag">Equipo Interno</span>
+      <span class="tag">Clientes</span>
+      <span class="ts-label end">+ capacitación a todos los niveles</span>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <span class="l">Plazo</span>
+        <span class="v">5.5 meses <em>· 22 sem</em></span>
+      </div>
+      <div class="stat">
+        <span class="l">Inversión</span>
+        <span class="v">USD 18.000</span>
+      </div>
+      <div class="stat">
+        <span class="l">Núcleo · 70%</span>
+        <span class="v">Imprenta <em>digital</em></span>
+      </div>
+      <div class="stat">
+        <span class="l">Método</span>
+        <span class="v">4 ciclos de <em>cresco deck</em> <span style="color:var(--muted); font-size:10px">(se explica más adelante)</span></span>
+  
+      </div>
+    </div>
+  </div>
+
+  <!-- DOS COLUMNAS -->
+  <div class="cols">
+
+    <div class="col">
+      <div class="sec-head">Entregables</div>
+      <ul class="bullets">
+        <li><strong>Landing Page Optimizada</strong> con catálogo y un llamado a la acción claro: cotizar</li>
+        <li><strong>Whatsapp business + agente</strong> conversacional que guía al usuario a cotizar hasta que requiere la atención de un humano. Se podrá personalizar para que, algunos clientes especiales, nunca sean tratados por AI.</li>
+        <li><strong>Imprenta digital sistematizada</strong> · cotizador inteligente usd/bs, hub central para visualizar y editar órdenes, validación de archivos con ia antes de llegar a producción, reportes gerenciales.</li>
+        <li><strong>Brand AI</strong> Corazón de Kenco para la Inteligencia Artificial.</li>
+      </ul>
+    </div>
+
+    <div class="col">
+      <div class="sec-head">Incluidos en la inversión</div>
+      <ul class="bullets">
+        <li><strong>Aviso por whatsapp</strong> al cliente en cada cambio de estado de su orden.</li>
+        <li><strong>Pdf de presupuesto</strong> con marca Kenco enviado por correo en segundos.</li>
+        <li><strong>Validación automática</strong> de resolución, formato y sangrado antes de producción.</li>
+        <li><strong>Reporte diario a gerencia</strong> con ventas, conversión y cuellos de botella.</li>
+        <li><strong>Set de skills internos</strong> para adopción y uso efectivo del ecosistema Anthropic (Claude, Code, Cowork, Design) a nivel operativo y de planta.</li>
+
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- TIMELINE + INVERSIÓN COMBINADOS -->
+  <div>
+    <div class="sec-head">Cronograma + inversión por fase</div>
+
+    <div class="timeline">
+
+      <div class="tl-row clickable" data-phase="f0" role="link" tabindex="0" aria-label="Ver detalle de f0 Descubrimiento">
+        <span class="tl-name"><span class="code">f0</span>Descubrimiento</span>
+        <div class="tl-bar-track">
+          <div class="tl-bar" style="left: 0%; width: 18.18%;">4 sem</div>
+        </div>
+        <span class="tl-amt"><span class="pct">10%</span>1.800</span>
+      </div>
+
+      <div class="tl-row clickable" data-phase="f1" role="link" tabindex="0" aria-label="Ver detalle de f1 Landing + brand ai">
+        <span class="tl-name"><span class="code">f1</span>Landing + brand ai</span>
+        <div class="tl-bar-track">
+          <div class="tl-bar" style="left: 18.18%; width: 9.09%;">2 sem</div>
+        </div>
+        <span class="tl-amt"><span class="pct">10%</span>1.800</span>
+      </div>
+
+      <div class="tl-row clickable" data-phase="f2" role="link" tabindex="0" aria-label="Ver detalle de f2 Whatsapp + agente">
+        <span class="tl-name"><span class="code">f2</span>Whatsapp + agente</span>
+        <div class="tl-bar-track">
+          <div class="tl-bar" style="left: 27.27%; width: 9.09%;">2 sem</div>
+        </div>
+        <span class="tl-amt"><span class="pct">10%</span>1.800</span>
+      </div>
+
+      <div class="tl-row clickable" data-phase="f3" role="link" tabindex="0" aria-label="Ver detalle de f3 Imprenta digital">
+        <span class="tl-name"><span class="code">f3</span>Imprenta digital</span>
+        <div class="tl-bar-track">
+          <div class="tl-bar big" style="left: 36.36%; width: 36.36%;">8 sem · 4 iteraciones cresco deck</div>
+        </div>
+        <span class="tl-amt"><span class="pct">70%</span>12.600</span>
+      </div>
+
+      <div class="tl-row clickable" data-phase="f4" role="link" tabindex="0" aria-label="Ver detalle de f4 Entorno AI">
+        <span class="tl-name"><span class="code">f4</span>Entorno AI · Anthropic + Notion</span>
+        <div class="tl-bar-track">
+          <div class="tl-bar dim" style="left: 72.72%; width: 9.09%;">2 sem · sin costo</div>
+        </div>
+        <span class="tl-amt"><span class="pct">0%</span>0</span>
+      </div>
+
+      <div class="tl-row clickable" data-phase="f5" role="link" tabindex="0" aria-label="Ver detalle de f5 Cierre + formación">
+        <span class="tl-name"><span class="code">f5</span>Cierre + formación</span>
+        <div class="tl-bar-track">
+          <div class="tl-bar dim" style="left: 81.81%; width: 18.18%;">4 sem · sin costo</div>
+        </div>
+        <span class="tl-amt"><span class="pct">0%</span>0</span>
+      </div>
+
+    </div>
+
+    <div class="tl-axis">
+      <span></span>
+      <div class="ticks">
+        <span class="q">s1</span><span>·</span><span>·</span><span>·</span>
+        <span class="q">s5</span><span>·</span><span>·</span><span>·</span><span>·</span>
+        <span class="q">s10</span><span>·</span><span>·</span><span>·</span><span>·</span>
+        <span class="q">s15</span><span>·</span><span>·</span><span>·</span><span>·</span>
+        <span class="q">s20</span><span>·</span><span class="q">s22</span>
+      </div>
+      <span></span>
+    </div>
+
+    <div class="tl-total">
+      <span class="label">Cada fase se libera contra firma del entregable · si una no cierra, la siguiente no arranca · <b>la formación final es sin costo.</b></span>
+      <span class="total"><span class="cur">USD</span>18.000</span>
+    </div>
+  </div>
+
+  <!-- FOOTER · CTA + FIRMA -->
+  <div class="footer">
+    <div class="left">
+      <div class="cta-label">Próximo paso</div>
+      <div class="cta-text">
+        Reunión de alineación de 45 minutos con el equipo directivo para confirmar alcance y arranque · <strong>luego firma del contrato marco</strong> y kickoff del descubrimiento.
+      </div>
+    </div>
+    <div class="sig">
+      <span class="sig-line">_______________________</span>
+      <span class="sig-name">Carlos Carrasquero</span>
+      <span class="sig-role">Cofundador · crescō</span>
+    </div>
+  </div>
+
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     F0 · DESCUBRIMIENTO
+     ════════════════════════════════════════════════════════════════════ -->
+<section class="page phase-page" id="f0">
+
+  <div class="top">
+    <span class="lockup">
+      <span class="cresco-mark">crescō<em>.</em></span>
+      <span class="x">×</span>
+      <span class="kenco-mark" aria-label="Kenco">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1417.32 708.66"><path d="M404.41 263.83h-81.14l-63.44 89.67H258V220.93h-73.2V474.9H258v-85.4h1.83l65.88 85.4h88.46l-86.02-108.58z"></path><path d="M502.3 258.95c-67.71 0-114.68 46.97-114.68 110.41 0 62.22 45.75 111.63 124.44 111.63 54.9 0 80.52-24.4 80.52-24.4l-23.18-45.75s-19.52 14.03-54.29 14.03c-29.28 0-51.24-12.81-56.73-42.09h151.29s.61-7.32.61-15.25c-.01-64.66-40.88-108.58-107.98-108.58zm-43.31 87.84c5.49-23.79 21.35-34.77 42.7-34.77 22.57 0 37.21 15.25 39.65 34.77h-82.35z"></path><path d="M997.71 419.39c-32.33 0-54.9-19.52-54.9-50.02 0-30.5 22.57-50.02 54.9-50.02 25.62 0 42.09 10.98 42.09 10.98l20.74-53.68s-22.57-17.69-69.54-17.69c-73.81 0-122.01 47.58-122.01 110.41 0 62.22 48.19 110.41 122.01 110.41 46.97 0 68.32-17.69 68.32-17.69l-19.52-53.68c.01 0-16.47 10.98-42.09 10.98z"></path><path d="M1175.56 258.95c-65.88 0-119.57 43.92-119.57 111.63 0 66.49 53.68 109.19 119.57 109.19 65.88 0 120.18-42.7 120.18-109.19-.01-67.71-54.3-111.63-120.18-111.63zm0 162.88c-28.67 0-48.19-20.74-48.19-52.46 0-31.11 19.52-52.46 48.19-52.46 29.28 0 48.8 21.35 48.8 52.46 0 31.72-19.52 52.46-48.8 52.46z"></path><path d="M626.31 263.91v210.91h73.09V330.57h80.14v144.25h73.09V330.57l-73.09-66.66z"></path></svg>
+      </span>
+    </span>
+    <a href="#" class="phase-back">← volver al one-pager</a>
+  </div>
+
+  <div class="phase-breadcrumb">
+    propuesta <span class="sep">/</span> fases <span class="sep">/</span> <span class="current">f0 descubrimiento</span>
+  </div>
+
+  <div class="phase-hero">
+    <div class="phase-title-row">
+      <span class="phase-code-mark">f0/</span>
+      <span class="phase-title">Descubrimiento</span>
+    </div>
+    <span class="phase-subtitle">Del flujo real al primer trazo de arquitectura · 4 semanas · 10% · USD 1.800</span>
+  </div>
+
+  <div class="phase-mini-timeline">
+    <span class="phase-mini-label cur">sem 1</span>
+    <div class="phase-mini-bar"><div class="phase-mini-fill" style="left: 0%; width: 18.18%;"></div></div>
+    <span class="phase-mini-label">sem 22</span>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">qué hacemos</div>
+    <div class="phase-section-body">
+      Acompañamos al equipo durante 4 semanas con <strong>sesiones mayormente remotas y algunas presenciales en el espacio de Kenco</strong>. Trabajamos con planta, ventas y dirección para auditar el stack actual, mapear cómo entra una orden, cómo se cotiza, cómo se valida un arte — y para construir juntos el primer <strong>Brand AI</strong>: el documento que captura cómo se ve, cómo habla y cómo decide Kenco.
+    </div>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">por qué importa</div>
+    <div class="phase-section-body">
+      Sin descubrimiento, el sistema se construye sobre supuestos. Aquí capturamos los matices que diferencian a Kenco — los que un saaS genérico no podría replicar. <strong>El Brand AI, en particular, es el corazón de todo lo que viene</strong>: sin él, cada cotización, cada whatsapp y cada email generado por AI sonarían genéricos. Con él, toda interacción — humana o automática — conserva la voz, el criterio y la personalidad de Kenco.
+    </div>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">entregables</div>
+    <div class="phase-section-body">
+      <ul>
+        <li>Mapa de procesos de imprenta digital</li>
+        <li>Inventario de integraciones existentes</li>
+        <li>Brand AI v0 + glosario Kenco</li>
+        <li>Primer borrador de arquitectura del módulo</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">cuando está listo</div>
+    <div class="phase-section-body">
+      <strong>Firma del documento f0 por dirección.</strong> Sin firma, f1 no arranca. La validación es del mapa, no del código.
+    </div>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">inversión</div>
+    <div class="phase-section-body">
+      <strong>USD 1.800</strong> · 10% del proyecto · liberado contra firma del entregable
+    </div>
+  </div>
+
+  <div class="phase-nav">
+    <a href="#" class="prev">← propuesta</a>
+    <a href="#f1" class="nxt">f1 landing + brand ai →</a>
+  </div>
+
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     F1 · LANDING + BRAND AI
+     ════════════════════════════════════════════════════════════════════ -->
+<section class="page phase-page" id="f1">
+
+  <div class="top">
+    <span class="lockup">
+      <span class="cresco-mark">crescō<em>.</em></span>
+      <span class="x">×</span>
+      <span class="kenco-mark" aria-label="Kenco">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1417.32 708.66"><path d="M404.41 263.83h-81.14l-63.44 89.67H258V220.93h-73.2V474.9H258v-85.4h1.83l65.88 85.4h88.46l-86.02-108.58z"></path><path d="M502.3 258.95c-67.71 0-114.68 46.97-114.68 110.41 0 62.22 45.75 111.63 124.44 111.63 54.9 0 80.52-24.4 80.52-24.4l-23.18-45.75s-19.52 14.03-54.29 14.03c-29.28 0-51.24-12.81-56.73-42.09h151.29s.61-7.32.61-15.25c-.01-64.66-40.88-108.58-107.98-108.58zm-43.31 87.84c5.49-23.79 21.35-34.77 42.7-34.77 22.57 0 37.21 15.25 39.65 34.77h-82.35z"></path><path d="M997.71 419.39c-32.33 0-54.9-19.52-54.9-50.02 0-30.5 22.57-50.02 54.9-50.02 25.62 0 42.09 10.98 42.09 10.98l20.74-53.68s-22.57-17.69-69.54-17.69c-73.81 0-122.01 47.58-122.01 110.41 0 62.22 48.19 110.41 122.01 110.41 46.97 0 68.32-17.69 68.32-17.69l-19.52-53.68c.01 0-16.47 10.98-42.09 10.98z"></path><path d="M1175.56 258.95c-65.88 0-119.57 43.92-119.57 111.63 0 66.49 53.68 109.19 119.57 109.19 65.88 0 120.18-42.7 120.18-109.19-.01-67.71-54.3-111.63-120.18-111.63zm0 162.88c-28.67 0-48.19-20.74-48.19-52.46 0-31.11 19.52-52.46 48.19-52.46 29.28 0 48.8 21.35 48.8 52.46 0 31.72-19.52 52.46-48.8 52.46z"></path><path d="M626.31 263.91v210.91h73.09V330.57h80.14v144.25h73.09V330.57l-73.09-66.66z"></path></svg>
+      </span>
+    </span>
+    <a href="#" class="phase-back">← volver al one-pager</a>
+  </div>
+
+  <div class="phase-breadcrumb">
+    propuesta <span class="sep">/</span> fases <span class="sep">/</span> <span class="current">f1 landing + brand ai</span>
+  </div>
+
+  <div class="phase-hero">
+    <div class="phase-title-row">
+      <span class="phase-code-mark">f1/</span>
+      <span class="phase-title">Landing + Brand AI</span>
+    </div>
+    <span class="phase-subtitle">Primer contacto comercial + ADN textual para humanos e IA · 2 semanas · 10% · USD 1.800</span>
+  </div>
+
+  <div class="phase-mini-timeline">
+    <span class="phase-mini-label">sem 1</span>
+    <div class="phase-mini-bar"><div class="phase-mini-fill" style="left: 18.18%; width: 9.09%;"></div></div>
+    <span class="phase-mini-label cur">sem 5–6</span>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">qué hacemos</div>
+    <div class="phase-section-body">
+      Construcción del <strong>sitio público optimizado para conversión</strong> con catálogo navegable y un CTA único: cotizar. En paralelo, activación del Brand AI organizacional — el documento vivo que define cómo habla Kenco en cada canal.
+    </div>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">por qué importa</div>
+    <div class="phase-section-body">
+      La landing es el primer punto de contacto comercial. El <strong>Brand AI es el ADN textual</strong> que asegura coherencia en cada WhatsApp, cada email, cada cotización generada por el agente. Sin él, cada canal suena distinto.
+    </div>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">entregables</div>
+    <div class="phase-section-body">
+      <ul>
+        <li>Landing pública responsive (desktop + mobile)</li>
+        <li>Catálogo de productos navegable</li>
+        <li>CTA de cotización integrado al agente de f2</li>
+        <li>Brand AI v1 desplegado y operable por el equipo</li>
+        <li>Esqueleto SEO técnico</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">cuando está listo</div>
+    <div class="phase-section-body">
+      <strong>Landing en producción</strong> con dominio Kenco apuntado, y <strong>Brand AI utilizable</strong> por el equipo para validar mensajes.
+    </div>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">inversión</div>
+    <div class="phase-section-body">
+      <strong>USD 1.800</strong> · 10% del proyecto · liberado contra firma del entregable
+    </div>
+  </div>
+
+  <div class="phase-nav">
+    <a href="#f0" class="prev">← f0 descubrimiento</a>
+    <a href="#f2" class="nxt">f2 whatsapp + agente →</a>
+  </div>
+
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     F2 · WHATSAPP + AGENTE
+     ════════════════════════════════════════════════════════════════════ -->
+<section class="page phase-page" id="f2">
+
+  <div class="top">
+    <span class="lockup">
+      <span class="cresco-mark">crescō<em>.</em></span>
+      <span class="x">×</span>
+      <span class="kenco-mark" aria-label="Kenco">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1417.32 708.66"><path d="M404.41 263.83h-81.14l-63.44 89.67H258V220.93h-73.2V474.9H258v-85.4h1.83l65.88 85.4h88.46l-86.02-108.58z"></path><path d="M502.3 258.95c-67.71 0-114.68 46.97-114.68 110.41 0 62.22 45.75 111.63 124.44 111.63 54.9 0 80.52-24.4 80.52-24.4l-23.18-45.75s-19.52 14.03-54.29 14.03c-29.28 0-51.24-12.81-56.73-42.09h151.29s.61-7.32.61-15.25c-.01-64.66-40.88-108.58-107.98-108.58zm-43.31 87.84c5.49-23.79 21.35-34.77 42.7-34.77 22.57 0 37.21 15.25 39.65 34.77h-82.35z"></path><path d="M997.71 419.39c-32.33 0-54.9-19.52-54.9-50.02 0-30.5 22.57-50.02 54.9-50.02 25.62 0 42.09 10.98 42.09 10.98l20.74-53.68s-22.57-17.69-69.54-17.69c-73.81 0-122.01 47.58-122.01 110.41 0 62.22 48.19 110.41 122.01 110.41 46.97 0 68.32-17.69 68.32-17.69l-19.52-53.68c.01 0-16.47 10.98-42.09 10.98z"></path><path d="M1175.56 258.95c-65.88 0-119.57 43.92-119.57 111.63 0 66.49 53.68 109.19 119.57 109.19 65.88 0 120.18-42.7 120.18-109.19-.01-67.71-54.3-111.63-120.18-111.63zm0 162.88c-28.67 0-48.19-20.74-48.19-52.46 0-31.11 19.52-52.46 48.19-52.46 29.28 0 48.8 21.35 48.8 52.46 0 31.72-19.52 52.46-48.8 52.46z"></path><path d="M626.31 263.91v210.91h73.09V330.57h80.14v144.25h73.09V330.57l-73.09-66.66z"></path></svg>
+      </span>
+    </span>
+    <a href="#" class="phase-back">← volver al one-pager</a>
+  </div>
+
+  <div class="phase-breadcrumb">
+    propuesta <span class="sep">/</span> fases <span class="sep">/</span> <span class="current">f2 whatsapp + agente</span>
+  </div>
+
+  <div class="phase-hero">
+    <div class="phase-title-row">
+      <span class="phase-code-mark">f2/</span>
+      <span class="phase-title">WhatsApp + agente</span>
+    </div>
+    <span class="phase-subtitle">Donde Kenco ya conversa, ahora también cotiza 24/7 · 2 semanas · 10% · USD 1.800</span>
+  </div>
+
+  <div class="phase-mini-timeline">
+    <span class="phase-mini-label">sem 1</span>
+    <div class="phase-mini-bar"><div class="phase-mini-fill" style="left: 27.27%; width: 9.09%;"></div></div>
+    <span class="phase-mini-label cur">sem 7–8</span>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">qué hacemos</div>
+    <div class="phase-section-body">
+      Integración de <strong>WhatsApp Business API</strong> con un agente conversacional que habla Brand AI, guía al usuario a cotizar y escala a un humano cuando se requiere. Configuración de <em>whitelist</em> para clientes especiales que siempre serán atendidos por personas.
+    </div>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">por qué importa</div>
+    <div class="phase-section-body">
+      WhatsApp es donde Kenco ya conversa todos los días. El agente <strong>captura demanda 24/7 sin perder la esencia humana</strong> que diferencia a Kenco. La whitelist asegura que los clientes top nunca sientan que hablan con una máquina.
+    </div>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">entregables</div>
+    <div class="phase-section-body">
+      <ul>
+        <li>Número WhatsApp Business productivo</li>
+        <li>Agente conversacional con Brand AI</li>
+        <li>Flujo de escalado a humano</li>
+        <li>Whitelist editable de clientes "siempre humano"</li>
+        <li>Avisos automáticos por cambio de estado de orden</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">cuando está listo</div>
+    <div class="phase-section-body">
+      <strong>Primera cotización generada por el agente y aprobada por el cliente final</strong>, medida en producción.
+    </div>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">inversión</div>
+    <div class="phase-section-body">
+      <strong>USD 1.800</strong> · 10% del proyecto · liberado contra firma del entregable
+    </div>
+  </div>
+
+  <div class="phase-nav">
+    <a href="#f1" class="prev">← f1 landing + brand ai</a>
+    <a href="#f3" class="nxt">f3 imprenta digital →</a>
+  </div>
+
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     F3 · IMPRENTA DIGITAL (núcleo · 70%)
+     ════════════════════════════════════════════════════════════════════ -->
+<section class="page phase-page" id="f3">
+
+  <div class="top">
+    <span class="lockup">
+      <span class="cresco-mark">crescō<em>.</em></span>
+      <span class="x">×</span>
+      <span class="kenco-mark" aria-label="Kenco">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1417.32 708.66"><path d="M404.41 263.83h-81.14l-63.44 89.67H258V220.93h-73.2V474.9H258v-85.4h1.83l65.88 85.4h88.46l-86.02-108.58z"></path><path d="M502.3 258.95c-67.71 0-114.68 46.97-114.68 110.41 0 62.22 45.75 111.63 124.44 111.63 54.9 0 80.52-24.4 80.52-24.4l-23.18-45.75s-19.52 14.03-54.29 14.03c-29.28 0-51.24-12.81-56.73-42.09h151.29s.61-7.32.61-15.25c-.01-64.66-40.88-108.58-107.98-108.58zm-43.31 87.84c5.49-23.79 21.35-34.77 42.7-34.77 22.57 0 37.21 15.25 39.65 34.77h-82.35z"></path><path d="M997.71 419.39c-32.33 0-54.9-19.52-54.9-50.02 0-30.5 22.57-50.02 54.9-50.02 25.62 0 42.09 10.98 42.09 10.98l20.74-53.68s-22.57-17.69-69.54-17.69c-73.81 0-122.01 47.58-122.01 110.41 0 62.22 48.19 110.41 122.01 110.41 46.97 0 68.32-17.69 68.32-17.69l-19.52-53.68c.01 0-16.47 10.98-42.09 10.98z"></path><path d="M1175.56 258.95c-65.88 0-119.57 43.92-119.57 111.63 0 66.49 53.68 109.19 119.57 109.19 65.88 0 120.18-42.7 120.18-109.19-.01-67.71-54.3-111.63-120.18-111.63zm0 162.88c-28.67 0-48.19-20.74-48.19-52.46 0-31.11 19.52-52.46 48.19-52.46 29.28 0 48.8 21.35 48.8 52.46 0 31.72-19.52 52.46-48.8 52.46z"></path><path d="M626.31 263.91v210.91h73.09V330.57h80.14v144.25h73.09V330.57l-73.09-66.66z"></path></svg>
+      </span>
+    </span>
+    <a href="#" class="phase-back">← volver al one-pager</a>
+  </div>
+
+  <div class="phase-breadcrumb">
+    propuesta <span class="sep">/</span> fases <span class="sep">/</span> <span class="current">f3 imprenta digital · núcleo</span>
+  </div>
+
+  <div class="phase-hero">
+    <div class="phase-title-row">
+      <span class="phase-code-mark">f3/</span>
+      <span class="phase-title">Imprenta digital</span>
+    </div>
+    <span class="phase-subtitle">El núcleo del Sistema Operativo · 8 semanas · 4 ciclos cresco deck · 70% · USD 12.600</span>
+  </div>
+
+  <div class="phase-mini-timeline">
+    <span class="phase-mini-label">sem 1</span>
+    <div class="phase-mini-bar"><div class="phase-mini-fill" style="left: 36.36%; width: 36.36%;"></div></div>
+    <span class="phase-mini-label cur">sem 9–16</span>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">qué hacemos</div>
+    <div class="phase-section-body">
+      El módulo central. <strong>Cotizador inteligente USD/Bs</strong> conectado al BCV, <strong>hub central de órdenes editable</strong> para ventas y planta, <strong>validación con IA</strong> de resolución/formato/sangrado antes de que el arte llegue a producción, y reportes gerenciales automáticos. Construido en <strong>4 iteraciones de 2 semanas con metodología cresco deck</strong> — cada ciclo arranca con sesiones de cocreación y termina con software en uso.
+    </div>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">por qué importa</div>
+    <div class="phase-section-body">
+      Es donde se materializa la operación. <strong>ROI directo:</strong> cada hora ahorrada en cotización manual, cada arte validado antes de máquina, cada reporte que llega solo a las 9am — todo es tiempo y dinero recuperado. Concentra el 70% del esfuerzo porque es el corazón del negocio.
+    </div>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">entregables</div>
+    <div class="phase-section-body">
+      <ul>
+        <li>Cotizador USD/Bs sincronizado con BCV</li>
+        <li>Hub central de órdenes (visualización + edición)</li>
+        <li>Validación IA pre-producción (resolución, formato, sangrado)</li>
+        <li>PDF de presupuesto con marca Kenco enviado por correo</li>
+        <li>Reporte diario gerencial (ventas, conversión, cuellos de botella)</li>
+        <li>Avisos automáticos por cambio de estado de orden</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">cuando está listo</div>
+    <div class="phase-section-body">
+      <strong>4 iteraciones firmadas por dirección</strong> y <strong>sistema en uso real por planta</strong>. Cada ciclo se libera contra firma — si una iteración no cierra, la siguiente no arranca.
+    </div>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">inversión</div>
+    <div class="phase-section-body">
+      <strong>USD 12.600</strong> · 70% del proyecto · liberado por cada iteración cresco deck firmada (4 × USD 3.150)
+    </div>
+  </div>
+
+  <div class="phase-nav">
+    <a href="#f2" class="prev">← f2 whatsapp + agente</a>
+    <a href="#f4" class="nxt">f4 entorno ai →</a>
+  </div>
+
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     F4 · ENTORNO AI · ANTHROPIC + NOTION (sin costo)
+     ════════════════════════════════════════════════════════════════════ -->
+<section class="page phase-page" id="f4">
+
+  <div class="top">
+    <span class="lockup">
+      <span class="cresco-mark">crescō<em>.</em></span>
+      <span class="x">×</span>
+      <span class="kenco-mark" aria-label="Kenco">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1417.32 708.66"><path d="M404.41 263.83h-81.14l-63.44 89.67H258V220.93h-73.2V474.9H258v-85.4h1.83l65.88 85.4h88.46l-86.02-108.58z"></path><path d="M502.3 258.95c-67.71 0-114.68 46.97-114.68 110.41 0 62.22 45.75 111.63 124.44 111.63 54.9 0 80.52-24.4 80.52-24.4l-23.18-45.75s-19.52 14.03-54.29 14.03c-29.28 0-51.24-12.81-56.73-42.09h151.29s.61-7.32.61-15.25c-.01-64.66-40.88-108.58-107.98-108.58zm-43.31 87.84c5.49-23.79 21.35-34.77 42.7-34.77 22.57 0 37.21 15.25 39.65 34.77h-82.35z"></path><path d="M997.71 419.39c-32.33 0-54.9-19.52-54.9-50.02 0-30.5 22.57-50.02 54.9-50.02 25.62 0 42.09 10.98 42.09 10.98l20.74-53.68s-22.57-17.69-69.54-17.69c-73.81 0-122.01 47.58-122.01 110.41 0 62.22 48.19 110.41 122.01 110.41 46.97 0 68.32-17.69 68.32-17.69l-19.52-53.68c.01 0-16.47 10.98-42.09 10.98z"></path><path d="M1175.56 258.95c-65.88 0-119.57 43.92-119.57 111.63 0 66.49 53.68 109.19 119.57 109.19 65.88 0 120.18-42.7 120.18-109.19-.01-67.71-54.3-111.63-120.18-111.63zm0 162.88c-28.67 0-48.19-20.74-48.19-52.46 0-31.11 19.52-52.46 48.19-52.46 29.28 0 48.8 21.35 48.8 52.46 0 31.72-19.52 52.46-48.8 52.46z"></path><path d="M626.31 263.91v210.91h73.09V330.57h80.14v144.25h73.09V330.57l-73.09-66.66z"></path></svg>
+      </span>
+    </span>
+    <a href="#" class="phase-back">← volver al one-pager</a>
+  </div>
+
+  <div class="phase-breadcrumb">
+    propuesta <span class="sep">/</span> fases <span class="sep">/</span> <span class="current">f4 entorno ai · anthropic + notion</span>
+  </div>
+
+  <div class="phase-hero">
+    <div class="phase-title-row">
+      <span class="phase-code-mark">f4/</span>
+      <span class="phase-title">Entorno AI</span>
+    </div>
+    <span class="phase-subtitle">Dejamos a Kenco listo para trabajar con AI · ecosistema Anthropic combinado con Notion · 2 semanas · sin costo</span>
+  </div>
+
+  <div class="phase-mini-timeline">
+    <span class="phase-mini-label">sem 1</span>
+    <div class="phase-mini-bar"><div class="phase-mini-fill" style="left: 72.72%; width: 9.09%;"></div></div>
+    <span class="phase-mini-label cur">sem 17–18</span>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">qué hacemos</div>
+    <div class="phase-section-body">
+      Dejamos preparado el entorno de trabajo para que Kenco saque máximo provecho del <strong>ecosistema Anthropic</strong> (Claude, Claude Code, Cowork, Claude Design) en el día a día. Conectamos las herramientas con los sistemas reales de Kenco para que la AI no solo opine, sino que ejecute. <strong>Sugerimos combinar este ecosistema con Notion</strong> como espacio único para reuniones, tareas y metas — entregamos plantillas listas para arrancar.
+    </div>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">por qué importa</div>
+    <div class="phase-section-body">
+      Las herramientas de AI rinden cuando viven dentro de un entorno bien armado. <strong>Sin esa base, Claude se queda en consejos genéricos; con ella, se vuelve un colaborador real</strong> que ejecuta tareas, busca información, redacta presupuestos y hace seguimiento. <strong>Notion como capa de memoria organizacional</strong> asegura que las decisiones, reuniones y aprendizajes no se pierdan en chats sueltos.
+    </div>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">entregables</div>
+    <div class="phase-section-body">
+      <ul>
+        <li>Ecosistema Anthropic configurado y operativo en Kenco</li>
+        <li>Comandos personalizados (3–5) para tareas frecuentes del equipo</li>
+        <li>Workspace Notion sugerido con plantillas: reuniones, tareas, metas/OKRs</li>
+        <li>Guía de uso para arrancar al día siguiente</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">cuando está listo</div>
+    <div class="phase-section-body">
+      <strong>Entorno Anthropic operativo y workspace Notion entregado</strong> con plantillas listas. Kenco recibe accesos, comandos personalizados y guía de uso — listo para que f5 (formación) aterrice sobre algo concreto.
+    </div>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">inversión</div>
+    <div class="phase-section-body">
+      <strong>Sin costo.</strong> Incluido en el alcance del proyecto. <em>Nota:</em> el presupuesto cubre el setup y las plantillas iniciales — <strong>no contempla la integración técnica entre Notion y el resto del sistema Kenco</strong>.
+    </div>
+  </div>
+
+  <div class="phase-nav">
+    <a href="#f3" class="prev">← f3 imprenta digital</a>
+    <a href="#f5" class="nxt">f5 cierre + formación →</a>
+  </div>
+
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     F5 · CIERRE + FORMACIÓN (sin costo)
+     ════════════════════════════════════════════════════════════════════ -->
+<section class="page phase-page" id="f5">
+
+  <div class="top">
+    <span class="lockup">
+      <span class="cresco-mark">crescō<em>.</em></span>
+      <span class="x">×</span>
+      <span class="kenco-mark" aria-label="Kenco">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1417.32 708.66"><path d="M404.41 263.83h-81.14l-63.44 89.67H258V220.93h-73.2V474.9H258v-85.4h1.83l65.88 85.4h88.46l-86.02-108.58z"></path><path d="M502.3 258.95c-67.71 0-114.68 46.97-114.68 110.41 0 62.22 45.75 111.63 124.44 111.63 54.9 0 80.52-24.4 80.52-24.4l-23.18-45.75s-19.52 14.03-54.29 14.03c-29.28 0-51.24-12.81-56.73-42.09h151.29s.61-7.32.61-15.25c-.01-64.66-40.88-108.58-107.98-108.58zm-43.31 87.84c5.49-23.79 21.35-34.77 42.7-34.77 22.57 0 37.21 15.25 39.65 34.77h-82.35z"></path><path d="M997.71 419.39c-32.33 0-54.9-19.52-54.9-50.02 0-30.5 22.57-50.02 54.9-50.02 25.62 0 42.09 10.98 42.09 10.98l20.74-53.68s-22.57-17.69-69.54-17.69c-73.81 0-122.01 47.58-122.01 110.41 0 62.22 48.19 110.41 122.01 110.41 46.97 0 68.32-17.69 68.32-17.69l-19.52-53.68c.01 0-16.47 10.98-42.09 10.98z"></path><path d="M1175.56 258.95c-65.88 0-119.57 43.92-119.57 111.63 0 66.49 53.68 109.19 119.57 109.19 65.88 0 120.18-42.7 120.18-109.19-.01-67.71-54.3-111.63-120.18-111.63zm0 162.88c-28.67 0-48.19-20.74-48.19-52.46 0-31.11 19.52-52.46 48.19-52.46 29.28 0 48.8 21.35 48.8 52.46 0 31.72-19.52 52.46-48.8 52.46z"></path><path d="M626.31 263.91v210.91h73.09V330.57h80.14v144.25h73.09V330.57l-73.09-66.66z"></path></svg>
+      </span>
+    </span>
+    <a href="#" class="phase-back">← volver al one-pager</a>
+  </div>
+
+  <div class="phase-breadcrumb">
+    propuesta <span class="sep">/</span> fases <span class="sep">/</span> <span class="current">f5 cierre + formación</span>
+  </div>
+
+  <div class="phase-hero">
+    <div class="phase-title-row">
+      <span class="phase-code-mark">f5/</span>
+      <span class="phase-title">Cierre + formación</span>
+    </div>
+    <span class="phase-subtitle">Adopción real del ecosistema Anthropic en Kenco · 4 semanas · sin costo</span>
+  </div>
+
+  <div class="phase-mini-timeline">
+    <span class="phase-mini-label">sem 1</span>
+    <div class="phase-mini-bar"><div class="phase-mini-fill" style="left: 81.81%; width: 18.18%;"></div></div>
+    <span class="phase-mini-label cur">sem 19–22</span>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">qué hacemos</div>
+    <div class="phase-section-body">
+      <strong>Capacitación operativa</strong> del equipo Kenco en el ecosistema Anthropic (Claude, Claude Code, Cowork, Claude Design). Construcción de un <strong>set de skills internos</strong> para que el equipo extienda el sistema solo. Handoff técnico documentado y plan de evolución sugerido.
+    </div>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">por qué importa</div>
+    <div class="phase-section-body">
+      Sin adopción, ningún sistema sobrevive. <strong>Garantizamos que Kenco evolucione la plataforma de forma autónoma</strong> y aproveche el ecosistema Anthropic en su día a día — no solo en este proyecto, sino en todo lo que venga después.
+    </div>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">entregables</div>
+    <div class="phase-section-body">
+      <ul>
+        <li>8 sesiones de formación (operativa + planta + dirección)</li>
+        <li>Manuales operativos por rol</li>
+        <li>Set de skills custom de Kenco (cotizar, validar arte, generar reporte)</li>
+        <li>Documentación técnica completa del sistema</li>
+        <li>Plan de evolución sugerido para los próximos 12 meses</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">cuando está listo</div>
+    <div class="phase-section-body">
+      <strong>Equipo Kenco certificado</strong> y <strong>sistema operando autónomamente</strong> sin dependencia de cresco para tareas del día a día.
+    </div>
+  </div>
+
+  <div class="phase-section">
+    <div class="phase-section-lbl">inversión</div>
+    <div class="phase-section-body">
+      <strong>Sin costo.</strong> La formación final está incluida en el alcance del proyecto.
+    </div>
+  </div>
+
+  <div class="phase-nav">
+    <a href="#f4" class="prev">← f4 entorno ai</a>
+    <a href="#" class="nxt">volver a propuesta →</a>
+  </div>
+
+</section>
+
+<script>
+  (function () {
+    const ROUTES = ['f0', 'f1', 'f2', 'f3', 'f4', 'f5'];
+
+    function currentRoute() {
+      const hash = window.location.hash.slice(1);
+      return ROUTES.includes(hash) ? hash : null;
+    }
+
+    function showRoute() {
+      document.body.classList.add('routing');
+
+      setTimeout(() => {
+        const route = currentRoute();
+        document.body.classList.toggle('view-phase', route !== null);
+
+        document.querySelectorAll('.phase-page').forEach(page => {
+          page.style.display = page.id === route ? 'flex' : 'none';
+        });
+
+        window.scrollTo({ top: 0, behavior: 'instant' });
+
+        requestAnimationFrame(() => {
+          document.body.classList.remove('routing');
+        });
+      }, 180);
+    }
+
+    window.addEventListener('hashchange', showRoute);
+    window.addEventListener('DOMContentLoaded', showRoute);
+
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.tl-row.clickable').forEach(row => {
+        const target = '#' + row.dataset.phase;
+        row.addEventListener('click', () => {
+          window.location.hash = target;
+        });
+        row.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            window.location.hash = target;
+          }
+        });
+      });
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      const route = currentRoute();
+      if (route === null) return;
+
+      const idx = ROUTES.indexOf(route);
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        window.location.hash = idx > 0 ? '#' + ROUTES[idx - 1] : '#';
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        window.location.hash = idx < ROUTES.length - 1 ? '#' + ROUTES[idx + 1] : '#';
+      } else if (e.key === 'Escape') {
+        e.preventDefault();
+        window.location.hash = '#';
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>

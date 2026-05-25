@@ -1,0 +1,12 @@
+{
+  "name": "kenco-cresco",
+  "version": "1.0.0",
+  "description": "Propuesta Kenco · crescō · static one-pager encriptado con StatiCrypt",
+  "private": false,
+  "scripts": {
+    "build": "staticrypt proposal/kenco-onepager.html -p \"${STATICRYPT_PASSWORD:-set-me-in-env}\" -d dist --short --remember 30 -t tools/staticrypt-template.html --template-title \"Propuesta Kenco\" --template-instructions \"Documento privado · v1.0 · mayo 2026\" --template-button \"Abrir propuesta\" --template-placeholder \"\" --template-error \"Contraseña incorrecta\" && mv dist/kenco-onepager.html dist/index.html"
+  },
+  "devDependencies": {
+    "staticrypt": "^3.5.4"
+  }
+}
