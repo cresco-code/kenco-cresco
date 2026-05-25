@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+
+  <!-- background · cream -->
+  <rect width="1200" height="630" fill="#EFEAE0"/>
+
+  <!-- top accent line · forest green -->
+  <rect x="0" y="0" width="1200" height="3" fill="#3D5240"/>
+
+  <!-- top-left meta -->
+  <text x="60" y="58" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="14" fill="#8C8377" letter-spacing="2" font-weight="500">DOCUMENTO PRIVADO</text>
+
+  <!-- top-right pulse + label -->
+  <circle cx="1075" cy="51" r="5" fill="#3D5240"/>
+  <text x="1140" y="58" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="14" fill="#1A1612" letter-spacing="2" font-weight="500" text-anchor="end">V1.0 · MAYO 2026</text>
+
+  <!-- ═════ CENTERED LOCKUP ═════ -->
+  <!-- We center a group with: kenco logo + × + crescō. -->
+  <!-- Estimated widths: kenco ~280 + gap 60 + × ~25 + gap 60 + crescō. ~340 = ~765 total -->
+  <!-- Centered: starts at (1200-765)/2 = ~218 -->
+
+  <g transform="translate(218, 245)">
+    <!-- Kenco logo · scaled to ~280px wide × 140px tall (scale 0.198 from 1417.32) -->
+    <g transform="scale(0.198)">
+      <path fill="#1A1612" d="M404.41 263.83h-81.14l-63.44 89.67H258V220.93h-73.2V474.9H258v-85.4h1.83l65.88 85.4h88.46l-86.02-108.58z"/>
+      <path fill="#1A1612" d="M502.3 258.95c-67.71 0-114.68 46.97-114.68 110.41 0 62.22 45.75 111.63 124.44 111.63 54.9 0 80.52-24.4 80.52-24.4l-23.18-45.75s-19.52 14.03-54.29 14.03c-29.28 0-51.24-12.81-56.73-42.09h151.29s.61-7.32.61-15.25c-.01-64.66-40.88-108.58-107.98-108.58zm-43.31 87.84c5.49-23.79 21.35-34.77 42.7-34.77 22.57 0 37.21 15.25 39.65 34.77h-82.35z"/>
+      <path fill="#1A1612" d="M997.71 419.39c-32.33 0-54.9-19.52-54.9-50.02 0-30.5 22.57-50.02 54.9-50.02 25.62 0 42.09 10.98 42.09 10.98l20.74-53.68s-22.57-17.69-69.54-17.69c-73.81 0-122.01 47.58-122.01 110.41 0 62.22 48.19 110.41 122.01 110.41 46.97 0 68.32-17.69 68.32-17.69l-19.52-53.68c.01 0-16.47 10.98-42.09 10.98z"/>
+      <path fill="#1A1612" d="M1175.56 258.95c-65.88 0-119.57 43.92-119.57 111.63 0 66.49 53.68 109.19 119.57 109.19 65.88 0 120.18-42.7 120.18-109.19-.01-67.71-54.3-111.63-120.18-111.63zm0 162.88c-28.67 0-48.19-20.74-48.19-52.46 0-31.11 19.52-52.46 48.19-52.46 29.28 0 48.8 21.35 48.8 52.46 0 31.72-19.52 52.46-48.8 52.46z"/>
+      <path fill="#3D5240" d="M626.31 263.91v210.91h73.09V330.57h80.14v144.25h73.09V330.57l-73.09-66.66z"/>
+    </g>
+
+    <!-- × separator at center vertical of logo -->
+    <text x="338" y="88" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="36" fill="#8C8377" font-weight="400">×</text>
+
+    <!-- crescō. wordmark · large -->
+    <text x="408" y="110" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, Inter, sans-serif" font-weight="500" font-size="108" fill="#1A1612" letter-spacing="-3">crescō<tspan fill="#3D5240">.</tspan></text>
+  </g>
+
+  <!-- subtitle italic · centered -->
+  <text x="600" y="450" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, Inter, sans-serif" font-style="italic" font-size="24" fill="#5C544A" text-anchor="middle">propuesta · sistema operativo de kenco</text>
+
+  <!-- ═════ BOTTOM STRIP ═════ -->
+  <rect x="60" y="555" width="1080" height="0.5" fill="#D4CCBC"/>
+
+  <!-- bottom-left -->
+  <circle cx="60" cy="588" r="4.5" fill="#3D5240"/>
+  <text x="76" y="593" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="14" fill="#1A1612" letter-spacing="2" font-weight="500">KENCO.CRESCO.SO</text>
+
+  <!-- bottom-right -->
+  <text x="1140" y="593" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" fill="#8C8377" letter-spacing="1.5" text-anchor="end" font-style="italic">documento privado · no compartir</text>
+
+</svg>
