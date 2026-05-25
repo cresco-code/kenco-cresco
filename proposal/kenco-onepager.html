@@ -380,6 +380,34 @@
     border: 0.5pt solid var(--accent);
   }
 
+  /* bullets con código de fase · oculta el dot, usa el código mono como prefijo */
+  ul.bullets.bullets-phased li {
+    padding-left: 30px;
+  }
+  ul.bullets.bullets-phased li::before { display: none; }
+  ul.bullets.bullets-phased li .code {
+    position: absolute;
+    left: 0;
+    top: 1px;
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* hint debajo de sec-head · indica interactividad */
+  .sec-hint {
+    font-family: var(--sans);
+    font-style: italic;
+    font-size: 10.5px;
+    color: var(--ink-soft);
+    margin-top: -4px;
+    margin-bottom: 10px;
+    letter-spacing: -0.005em;
+  }
+
   /* ═════ EQUIPO · 3 ingenieros + agentes claude ═════ */
   .team-row {
     display: grid;
@@ -1111,12 +1139,12 @@
   <div class="cols">
 
     <div class="col">
-      <div class="sec-head">Entregables</div>
-      <ul class="bullets">
-        <li><strong>Landing Page Optimizada</strong> con catálogo y un llamado a la acción claro: cotizar</li>
-        <li><strong>Whatsapp business + agente</strong> conversacional que guía al usuario a cotizar hasta que requiere la atención de un humano. Se podrá personalizar para que, algunos clientes especiales, nunca sean tratados por AI.</li>
-        <li><strong>Imprenta digital sistematizada</strong> · cotizador inteligente usd/bs, hub central para visualizar y editar órdenes, validación de archivos con ia antes de llegar a producción, reportes gerenciales.</li>
-        <li><strong>Brand AI</strong> Corazón de Kenco para la Inteligencia Artificial.</li>
+      <div class="sec-head">Entregables · alineados con las fases</div>
+      <ul class="bullets bullets-phased">
+        <li><span class="code">f1</span><strong>Landing pública + Brand AI</strong> — sitio optimizado con catálogo y CTA de cotizar, más el ADN textual de Kenco listo para humanos e IA.</li>
+        <li><span class="code">f2</span><strong>WhatsApp Business + agente</strong> — guía al usuario a cotizar 24/7, escala a humano cuando hace falta, con lista blanca para clientes especiales.</li>
+        <li><span class="code">f3</span><strong>Imprenta digital sistematizada</strong> — cotizador USD/Bs, hub de órdenes editable, validación IA pre-producción, reportes diarios.</li>
+        <li><span class="code">f4</span><strong>Entorno AI · Anthropic + Notion</strong> — ecosistema Claude conectado a las herramientas de Kenco + workspace Notion con plantillas. Kenco empieza a operar con AI en el centro.</li>
       </ul>
     </div>
 
@@ -1137,6 +1165,7 @@
   <!-- TIMELINE + INVERSIÓN COMBINADOS -->
   <div>
     <div class="sec-head">Cronograma + inversión por fase</div>
+    <div class="sec-hint">Click en cualquier fila para abrir el detalle completo de la fase →</div>
 
     <div class="timeline">
 
