@@ -5,14 +5,14 @@
   <title>/*[|template_title|]*/0</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="light" />
-  <meta name="theme-color" content="#EFEAE0" />
+  <meta name="theme-color" content="#F8F4ED" />
   <meta name="robots" content="noindex, nofollow" />
-  <meta name="description" content="Documento privado · propuesta crescō para Kenco" />
+  <meta name="description" content="Propuesta crescō para Kenco" />
 
   <!-- OpenGraph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="kenco × crescō" />
-  <meta property="og:description" content="Documento privado · propuesta crescō para Kenco" />
+  <meta property="og:description" content="Propuesta crescō para Kenco" />
   <meta property="og:image" content="https://kenco-cresco.vercel.app/og.svg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -21,7 +21,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="kenco × crescō" />
-  <meta name="twitter:description" content="Documento privado · propuesta crescō para Kenco" />
+  <meta name="twitter:description" content="Propuesta crescō para Kenco" />
   <meta name="twitter:image" content="https://kenco-cresco.vercel.app/og.svg" />
 
   <meta http-equiv="cache-control" content="max-age=0" />
@@ -36,11 +36,11 @@
 
   <style>
     :root {
-      --bg: #EFEAE0;
-      --paper: #F7F3EA;
+      --bg: #F8F4ED;
+      --paper: #FBF8F1;
       --ink: #1A1612;
       --ink-soft: #5C544A;
-      --accent: #3D5240;
+      --accent: #4A7A52;
       --accent-soft: #DAE2D9;
       --accent-deep: #2A3B2D;
       --line: #D4CCBC;
@@ -110,7 +110,7 @@
     .cresco-mark {
       font-family: var(--sans);
       font-weight: 500;
-      font-size: 18px;
+      font-size: 22px;
       letter-spacing: -0.025em;
       color: var(--ink);
       display: inline-flex;
@@ -125,7 +125,7 @@
     }
     .lockup .x {
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 400;
       color: var(--muted);
       letter-spacing: 0.05em;
@@ -133,30 +133,13 @@
     .kenco-mark {
       display: inline-flex;
       align-items: center;
-      height: 30px;
+      height: 15px;
     }
-    .kenco-mark svg { height: 30px; width: auto; display: block; shape-rendering: geometricPrecision; }
+    .kenco-mark svg { height: 15px; width: auto; display: block; shape-rendering: geometricPrecision; }
     .kenco-mark svg path { fill: var(--ink); }
     .kenco-mark svg path:last-child { fill: var(--accent); }
 
-    /* ── eyebrow + title ── */
-    .eyebrow {
-      font-family: var(--mono);
-      font-size: 9.5px;
-      color: var(--accent);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
-    .eyebrow::before {
-      content: "";
-      width: 18px;
-      height: 0.5pt;
-      background: var(--accent);
-    }
+    /* ── title ── */
     .staticrypt-title {
       font-family: var(--sans);
       font-weight: 500;
@@ -164,14 +147,6 @@
       letter-spacing: -0.025em;
       line-height: 1.05;
       color: var(--ink);
-      margin-bottom: 6px;
-    }
-    .staticrypt-subtitle {
-      font-family: var(--sans);
-      font-style: italic;
-      font-size: 13px;
-      line-height: 1.5;
-      color: var(--ink-soft);
       margin-bottom: 22px;
     }
 
@@ -183,11 +158,11 @@
 
     /* ── input ── */
     .field-label {
-      font-family: var(--mono);
-      font-size: 9px;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+      font-family: var(--sans);
+      font-style: italic;
+      font-size: 12px;
+      color: var(--ink-soft);
+      letter-spacing: -0.005em;
       display: block;
       margin-bottom: 8px;
     }
@@ -246,11 +221,11 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      font-family: var(--mono);
-      font-size: 9.5px;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-family: var(--sans);
+      font-style: italic;
+      font-size: 12px;
+      color: var(--ink-soft);
+      letter-spacing: -0.005em;
       margin-bottom: 18px;
       cursor: pointer;
       user-select: none;
@@ -309,10 +284,10 @@
     /* ── error ── */
     .staticrypt-error {
       color: #8a3a2c;
-      font-family: var(--mono);
-      font-size: 9.5px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      font-family: var(--sans);
+      font-style: italic;
+      font-size: 12px;
+      letter-spacing: -0.005em;
       margin-top: 12px;
       text-align: center;
       min-height: 14px;
@@ -326,11 +301,11 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-family: var(--mono);
-      font-size: 8.5px;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-family: var(--sans);
+      font-style: italic;
+      font-size: 11px;
+      color: var(--ink-soft);
+      letter-spacing: -0.005em;
     }
     .meta .pulse {
       display: inline-block;
@@ -354,15 +329,13 @@
 
       <div class="lockup">
         <span class="kenco-mark" aria-label="Kenco">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1417.32 708.66"><path d="M404.41 263.83h-81.14l-63.44 89.67H258V220.93h-73.2V474.9H258v-85.4h1.83l65.88 85.4h88.46l-86.02-108.58z"></path><path d="M502.3 258.95c-67.71 0-114.68 46.97-114.68 110.41 0 62.22 45.75 111.63 124.44 111.63 54.9 0 80.52-24.4 80.52-24.4l-23.18-45.75s-19.52 14.03-54.29 14.03c-29.28 0-51.24-12.81-56.73-42.09h151.29s.61-7.32.61-15.25c-.01-64.66-40.88-108.58-107.98-108.58zm-43.31 87.84c5.49-23.79 21.35-34.77 42.7-34.77 22.57 0 37.21 15.25 39.65 34.77h-82.35z"></path><path d="M997.71 419.39c-32.33 0-54.9-19.52-54.9-50.02 0-30.5 22.57-50.02 54.9-50.02 25.62 0 42.09 10.98 42.09 10.98l20.74-53.68s-22.57-17.69-69.54-17.69c-73.81 0-122.01 47.58-122.01 110.41 0 62.22 48.19 110.41 122.01 110.41 46.97 0 68.32-17.69 68.32-17.69l-19.52-53.68c.01 0-16.47 10.98-42.09 10.98z"></path><path d="M1175.56 258.95c-65.88 0-119.57 43.92-119.57 111.63 0 66.49 53.68 109.19 119.57 109.19 65.88 0 120.18-42.7 120.18-109.19-.01-67.71-54.3-111.63-120.18-111.63zm0 162.88c-28.67 0-48.19-20.74-48.19-52.46 0-31.11 19.52-52.46 48.19-52.46 29.28 0 48.8 21.35 48.8 52.46 0 31.72-19.52 52.46-48.8 52.46z"></path><path d="M626.31 263.91v210.91h73.09V330.57h80.14v144.25h73.09V330.57l-73.09-66.66z"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="180 220 1120 260"><path d="M404.41 263.83h-81.14l-63.44 89.67H258V220.93h-73.2V474.9H258v-85.4h1.83l65.88 85.4h88.46l-86.02-108.58z"></path><path d="M502.3 258.95c-67.71 0-114.68 46.97-114.68 110.41 0 62.22 45.75 111.63 124.44 111.63 54.9 0 80.52-24.4 80.52-24.4l-23.18-45.75s-19.52 14.03-54.29 14.03c-29.28 0-51.24-12.81-56.73-42.09h151.29s.61-7.32.61-15.25c-.01-64.66-40.88-108.58-107.98-108.58zm-43.31 87.84c5.49-23.79 21.35-34.77 42.7-34.77 22.57 0 37.21 15.25 39.65 34.77h-82.35z"></path><path d="M997.71 419.39c-32.33 0-54.9-19.52-54.9-50.02 0-30.5 22.57-50.02 54.9-50.02 25.62 0 42.09 10.98 42.09 10.98l20.74-53.68s-22.57-17.69-69.54-17.69c-73.81 0-122.01 47.58-122.01 110.41 0 62.22 48.19 110.41 122.01 110.41 46.97 0 68.32-17.69 68.32-17.69l-19.52-53.68c.01 0-16.47 10.98-42.09 10.98z"></path><path d="M1175.56 258.95c-65.88 0-119.57 43.92-119.57 111.63 0 66.49 53.68 109.19 119.57 109.19 65.88 0 120.18-42.7 120.18-109.19-.01-67.71-54.3-111.63-120.18-111.63zm0 162.88c-28.67 0-48.19-20.74-48.19-52.46 0-31.11 19.52-52.46 48.19-52.46 29.28 0 48.8 21.35 48.8 52.46 0 31.72-19.52 52.46-48.8 52.46z"></path><path d="M626.31 263.91v210.91h73.09V330.57h80.14v144.25h73.09V330.57l-73.09-66.66z"></path></svg>
         </span>
         <span class="x">×</span>
         <span class="cresco-mark">crescō<em>.</em></span>
       </div>
 
-      <div class="eyebrow">Documento privado</div>
       <h1 class="staticrypt-title">Propuesta · Sistema Operativo de Kenco</h1>
-      <p class="staticrypt-subtitle">/*[|template_instructions|]*/0</p>
 
       <div class="divider"></div>
 
@@ -398,7 +371,7 @@
       </form>
 
       <div class="meta">
-        <span><span class="pulse"></span>v1.0 · mayo 2026</span>
+        <span><span class="pulse"></span>V1.0 · Mayo 2026</span>
         <span>kenco.cresco.so</span>
       </div>
 

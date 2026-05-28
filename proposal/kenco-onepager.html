@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<meta name="theme-color" content="#EFEAE0">
+<meta name="theme-color" content="#F8F4ED">
 
 <title>crescō · propuesta Kenco · una página</title>
-<meta name="description" content="Propuesta Kenco · piloto 2026 · resumen ejecutivo en una página">
+<meta name="description" content="Propuesta Kenco × crescō · 5 meses · Sistema Operativo de imprenta digital · resumen ejecutivo en una página">
 <meta name="author" content="Carlos Carrasquero">
 <meta name="robots" content="noindex, nofollow">
 
@@ -17,11 +17,11 @@
 
 <style>
   :root {
-    --bg: #EFEAE0;
-    --paper: #F7F3EA;
+    --bg: #F8F4ED;
+    --paper: #FBF8F1;
     --ink: #1A1612;
     --ink-soft: #5C544A;
-    --accent: #3D5240;
+    --accent: #4A7A52;
     --accent-soft: #DAE2D9;
     --accent-deep: #2A3B2D;
     --line: #D4CCBC;
@@ -48,11 +48,11 @@
     padding: 24px 0;
   }
 
-  /* ═════ wordmark ═════ */
+  /* ═════ wordmarks ═════ */
   .cresco-mark {
     font-family: var(--sans);
     font-weight: 500;
-    font-size: 19px;
+    font-size: 26px;
     letter-spacing: -0.025em;
     color: var(--ink);
     display: inline-flex;
@@ -66,28 +66,13 @@
     margin-left: -2px;
   }
 
-  /* ═════ co-brand lockup · cresco × kenco ═════ */
-  .lockup {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .lockup .x {
-    font-family: var(--mono);
-    font-size: 13px;
-    font-weight: 400;
-    color: var(--muted);
-    letter-spacing: 0.05em;
-    text-transform: lowercase;
-    padding-bottom: 2px;
-  }
   .kenco-mark {
     display: inline-flex;
     align-items: center;
-    height: 38px;
+    height: 18px;
   }
   .kenco-mark svg {
-    height: 38px;
+    height: 18px;
     width: auto;
     display: block;
     shape-rendering: geometricPrecision;
@@ -95,10 +80,25 @@
   .kenco-mark svg path { fill: var(--ink); }
   .kenco-mark svg path:last-child { fill: var(--accent); }
 
+  .lockup {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .lockup .x {
+    font-family: var(--mono);
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    text-transform: lowercase;
+    padding-bottom: 2px;
+  }
+
   /* ═════ página A4 única ═════ */
   .page {
     width: 210mm;
-    height: 297mm;
+    min-height: 297mm;
     padding: 10mm 16mm 9mm;
     background: var(--bg);
     border: 0.5pt solid var(--line);
@@ -106,7 +106,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 7mm;
+    gap: 12mm;
     overflow: hidden;
   }
 
@@ -115,15 +115,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 7mm;
+    padding-bottom: 6mm;
     border-bottom: 0.5pt solid var(--line);
   }
   .top-meta {
-    font-family: var(--mono);
-    font-size: 9px;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-style: italic;
+    font-size: 11px;
+    color: var(--ink-soft);
+    letter-spacing: -0.005em;
     text-align: right;
     line-height: 1.55;
   }
@@ -138,88 +138,14 @@
   }
 
   /* ═════ HERO ═════ */
-  .hero { display: flex; flex-direction: column; gap: 20px; }
-
-  /* tech-strip · pills Anthropic / Equipo Interno / Clientes */
-  .tech-strip {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-    font-family: var(--mono);
-    font-size: 9px;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-  .tech-strip .ts-label {
-    color: var(--accent);
-    font-weight: 500;
-  }
-  .tech-strip .ts-label.end { margin-left: auto; }
-  .tech-strip .tag {
-    background: var(--paper);
-    border: 0.5pt solid var(--accent);
-    color: var(--accent-deep);
-    padding: 2px 9px;
-    border-radius: 99px;
-    font-weight: 500;
-    font-size: 8.5px;
-  }
-  .tech-strip .tag.solid {
-    background: var(--accent);
-    color: var(--bg);
-    border-color: var(--accent);
-  }
-
-  /* closing mission · banda tinta full-bleed al final del page */
-  .closing-mission {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: var(--ink);
-    color: var(--bg);
-    padding: 13px 16mm;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 24px;
-    align-items: center;
-  }
-  .closing-mission .quote {
-    font-family: var(--sans);
-    font-weight: 500;
-    font-size: 16px;
-    letter-spacing: -0.025em;
-    line-height: 1.3;
-    color: var(--bg);
-  }
-  .closing-mission .quote em {
-    font-style: italic;
-    color: var(--accent-soft);
-    font-weight: 400;
-  }
-  .closing-mission .attr {
-    font-family: var(--mono);
-    font-size: 9px;
-    color: rgba(239,234,224,0.55);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-align: right;
-    line-height: 1.55;
-  }
-  .closing-mission .attr b { color: var(--bg); font-weight: 500; }
-  .closing-mission .attr .mk em {
-    font-style: normal;
-    color: var(--accent);
-  }
+  .hero { display: flex; flex-direction: column; gap: 24px; }
 
   .eyebrow {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink-soft);
+    letter-spacing: -0.005em;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -235,11 +161,11 @@
   .hero-title {
     font-family: var(--sans);
     font-weight: 500;
-    font-size: 38px;
+    font-size: 34px;
     letter-spacing: -0.03em;
-    line-height: 1.02;
+    line-height: 1.05;
     color: var(--ink);
-    max-width: 92%;
+    max-width: 95%;
   }
   .hero-title em {
     font-style: italic;
@@ -251,25 +177,55 @@
   .hero-sub {
     font-family: var(--sans);
     font-style: italic;
-    font-size: 14px;
+    font-size: 13.5px;
     line-height: 1.5;
     color: var(--ink-soft);
-    max-width: 70ch;
+    max-width: 75ch;
     margin-top: 2px;
+  }
+  .hero-sub b { font-style: normal; font-weight: 500; color: var(--ink); }
+
+  /* tech-strip */
+  .tech-strip {
+    margin-top: 8px;
+    padding-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--ink-soft);
+    letter-spacing: -0.005em;
+    line-height: 1.4;
+  }
+  .tech-strip .ts-label {
+    font-style: italic;
+    color: var(--ink-soft);
+    font-weight: 400;
+  }
+  .tech-strip .ts-label.end { margin-left: auto; }
+  .tech-strip .tag {
+    background: var(--paper);
+    border: 0.5pt solid var(--accent);
+    color: var(--accent-deep);
+    padding: 4px 11px;
+    border-radius: 99px;
+    font-weight: 500;
+    font-size: 11.5px;
   }
 
   /* stats strip */
   .stats {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
+    grid-template-columns: repeat(4, 1fr);
     border-top: 0.5pt solid var(--line);
     border-bottom: 0.5pt solid var(--line);
-    padding: 14px 0;
-    margin-top: 0;
+    padding: 7px 0;
+    margin-top: 2px;
   }
   .stat {
-    padding: 0 16px;
+    padding: 0 14px;
     border-right: 0.5pt solid var(--line-soft);
     display: flex;
     flex-direction: column;
@@ -278,11 +234,11 @@
   .stat:first-child { padding-left: 0; }
   .stat:last-child { border-right: none; }
   .stat .l {
-    font-family: var(--mono);
-    font-size: 8.5px;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-style: italic;
+    font-size: 11px;
+    color: var(--ink-soft);
+    letter-spacing: -0.005em;
   }
   .stat .v {
     font-family: var(--sans);
@@ -298,48 +254,254 @@
     font-weight: 400;
   }
 
-  /* ═════ Section header reusable ═════ */
+  /* ═════ section header ═════ */
   .sec-head {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-size: 17px;
+    color: var(--ink);
+    letter-spacing: -0.02em;
     font-weight: 500;
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 8px;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 0.5pt solid var(--line);
   }
   .sec-head::before {
     content: "";
-    width: 16px;
-    height: 0.5pt;
+    width: 4px;
+    height: 18px;
     background: var(--accent);
+    border-radius: 1px;
   }
 
-  /* ═════ COLUMNAS ═════ */
+  /* ═════ bloques apilados (entregables + incluidos) ═════ */
   .cols {
+    display: flex;
+    flex-direction: column;
+    gap: 10mm;
+  }
+  .col {
+    max-width: 90ch;
+  }
+  /* hint bajo sec-head · indica interactividad */
+  .sec-hint {
+    font-family: var(--sans);
+    font-style: italic;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    letter-spacing: -0.005em;
+    margin-top: -10px;
+    margin-bottom: 14px;
+  }
+
+  /* === leyenda del gantt · pequeña, sin caja, tipo footnote === */
+  .tl-legend {
+    margin-top: 3mm;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 14px;
+    font-family: var(--sans);
+    font-size: 9.5px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .tl-legend-title {
+    font-style: italic;
+    color: var(--muted);
+    letter-spacing: -0.005em;
+    flex-shrink: 0;
+  }
+  .tl-legend-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: contents;
+  }
+  .tl-legend-items li {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .tl-legend-items strong {
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  .tl-legend-swatch {
+    display: inline-block;
+    width: 14px;
+    height: 6px;
+    background: transparent;
+    border-radius: 1px;
+    flex-shrink: 0;
+  }
+  .tl-legend-swatch.swatch-solid {
+    background: var(--accent);
+  }
+  .tl-legend-swatch.swatch-progress {
+    background: repeating-linear-gradient(135deg, var(--accent), var(--accent) 2px, #5d8d65 2px, #5d8d65 4px);
+  }
+  .tl-legend-swatch.swatch-dim {
+    background: transparent;
+    border: 0.5pt dashed var(--accent);
+  }
+  .tl-legend-pill {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--bg);
+    font-family: var(--mono);
+    font-size: 6.5px;
+    padding: 1px 5px;
+    border-radius: 99px;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+  }
+
+  /* === bloque de inversión · jerarquía clara, USD prominente === */
+  .inversion-block {
+    margin-top: 10mm;
+    padding-top: 8mm;
+    border-top: 0.5pt solid var(--line);
+  }
+  .inversion-eyebrow {
+    font-family: var(--sans);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: -0.005em;
+    margin-bottom: 6px;
+  }
+  .inversion-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14mm;
+    grid-template-columns: minmax(220px, auto) 1fr;
+    gap: 16mm;
+    align-items: start;
+  }
+  .inversion-price {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .price-amount {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 52px;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: var(--ink);
+    display: flex;
+    align-items: baseline;
+  }
+  .price-currency {
+    font-style: italic;
+    font-size: 20px;
+    color: var(--ink-soft);
+    font-weight: 400;
+    margin-right: 8px;
+  }
+  .price-rate {
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink-soft);
+    font-weight: 400;
+    margin-left: 2px;
+  }
+  .price-meta {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--ink-soft);
+    letter-spacing: -0.005em;
+    margin-top: 4px;
+  }
+  .inversion-team {
+    display: flex;
+    flex-direction: column;
+  }
+  .inversion-label {
+    font-family: var(--sans);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: -0.005em;
+    margin-bottom: 8px;
+  }
+  .inversion-team ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+  }
+  .inversion-team li {
+    padding-left: 14px;
+    position: relative;
+  }
+  .inversion-team li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+  .inversion-note {
+    margin-top: 8mm;
+    padding-top: 6mm;
+    border-top: 0.5pt solid var(--line-soft);
+    font-family: var(--sans);
+    font-style: italic;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    max-width: 85ch;
+  }
+
+  /* === sección mayor · usado para Cronograma (más prominente que sec-head) === */
+  .major-section {
+    margin-top: 14mm;
+    padding-top: 8mm;
+    border-top: 1.5pt solid var(--accent);
+  }
+  .major-section .major-eyebrow {
+    font-family: var(--sans);
+    font-style: italic;
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: -0.005em;
+    margin-bottom: 4px;
+  }
+  .major-section .major-title {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 26px;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .major-section .major-hint {
+    font-family: var(--sans);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-soft);
+    letter-spacing: -0.005em;
+    margin-bottom: 18px;
   }
 
   .col h3 {
     font-family: var(--sans);
     font-weight: 500;
-    font-size: 14.5px;
+    font-size: 14px;
     letter-spacing: -0.015em;
     color: var(--ink);
-    margin-bottom: 6px;
+    margin-bottom: 4px;
     line-height: 1.25;
   }
-  .col h3 em {
-    font-style: italic;
-    color: var(--ink-soft);
-    font-weight: 400;
-  }
-
   ul.bullets {
     list-style: none;
     display: flex;
@@ -348,187 +510,117 @@
   }
   ul.bullets li {
     font-family: var(--sans);
-    font-size: 10.5px;
+    font-size: 13px;
     line-height: 1.45;
     color: var(--ink-soft);
-    padding-left: 12px;
+    padding-left: 11px;
     position: relative;
   }
   ul.bullets li::before {
     content: "";
     position: absolute;
     left: 0;
-    top: 7px;
+    top: 6.5px;
     width: 5px;
     height: 5px;
     border-radius: 50%;
     background: var(--accent);
   }
-  ul.bullets li strong {
-    color: var(--ink);
-    font-weight: 500;
-  }
-  ul.bullets li em {
-    font-style: italic;
-    color: var(--ink);
-  }
-  ul.bullets li.dim::before {
-    background: transparent;
-    border: 0.5pt solid var(--accent);
-  }
+  ul.bullets li strong { color: var(--ink); font-weight: 500; }
+  ul.bullets li em { font-style: italic; color: var(--ink); }
 
-  /* bullets con código de fase · oculta el dot, usa el código mono como prefijo */
-  ul.bullets.bullets-phased li {
-    padding-left: 30px;
-  }
-  ul.bullets.bullets-phased li::before { display: none; }
-  ul.bullets.bullets-phased li .code {
-    position: absolute;
-    left: 0;
-    top: 1px;
-    font-family: var(--mono);
-    font-size: 9px;
-    color: var(--accent);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-
-  /* hint debajo de sec-head · indica interactividad */
-  .sec-hint {
-    font-family: var(--sans);
-    font-style: italic;
-    font-size: 10.5px;
-    color: var(--ink-soft);
-    margin-top: -4px;
-    margin-bottom: 10px;
-    letter-spacing: -0.005em;
-  }
-
-  /* ═════ EQUIPO · 3 ingenieros + agentes claude ═════ */
-  .team-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-  }
-  .team-card {
-    display: grid;
-    grid-template-columns: 24px 1fr;
-    gap: 8px;
-    padding: 7px 10px;
-    background: var(--paper);
-    border: 0.5pt solid var(--line);
-    border-radius: 4px;
-    align-items: center;
-  }
-  .team-card.lead {
-    background: var(--ink);
-    border-color: var(--ink);
-  }
-  .team-avatar {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: var(--accent-soft);
-    color: var(--accent-deep);
-    display: grid;
-    place-items: center;
-    font-family: var(--sans);
-    font-weight: 500;
-    font-size: 9px;
-    letter-spacing: -0.02em;
-  }
-  .team-card.lead .team-avatar {
-    background: var(--accent);
-    color: var(--bg);
-  }
-  .team-info { display: flex; flex-direction: column; gap: 0; min-width: 0; }
-  .team-name {
-    font-family: var(--sans);
-    font-weight: 500;
-    font-size: 10.5px;
-    letter-spacing: -0.01em;
-    color: var(--ink);
-    line-height: 1.2;
-  }
-  .team-card.lead .team-name { color: var(--bg); }
-  .team-role {
-    font-family: var(--mono);
-    font-size: 7.5px;
-    color: var(--muted);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    margin-top: 1px;
-  }
-  .team-card.lead .team-role { color: rgba(239,234,224,0.55); }
-  .team-cc {
-    font-family: var(--mono);
-    font-size: 7.5px;
-    color: var(--accent);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-top: 1px;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
-  .team-card.lead .team-cc { color: var(--accent-soft); }
-  .team-cc::before {
-    content: "+";
-    color: var(--accent);
-    font-weight: 500;
-  }
-  .team-card.lead .team-cc::before { color: var(--accent-soft); }
-
-  /* ═════ MINI GANTT ═════ */
+  /* ═════ MINI GANTT · 6 fases secuenciales ═════ */
+  /* ::after sobre .timeline · dibuja líneas verticales discontinuas
+     que cruzan filas y gaps in-between (gap: 9px) en la zona de barras */
   .timeline {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 9px;
+    position: relative;
+    --tl-track-left: 173px;
+    --tl-track-right: 98px;
+  }
+  .timeline::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--tl-track-left);
+    right: var(--tl-track-right);
+    pointer-events: none;
+    z-index: 2;
+    background-image:
+      linear-gradient(to bottom, var(--line-soft) 50%, transparent 50%),
+      linear-gradient(to bottom, var(--line-soft) 50%, transparent 50%),
+      linear-gradient(to bottom, var(--line-soft) 50%, transparent 50%),
+      linear-gradient(to bottom, var(--line-soft) 50%, transparent 50%),
+      linear-gradient(to bottom, var(--line-soft) 50%, transparent 50%);
+    background-size: 1px 3px;
+    background-position: 16.666% 0, 33.333% 0, 50% 0, 66.666% 0, 83.333% 0;
+    background-repeat: repeat-y;
   }
   .tl-row {
     display: grid;
-    grid-template-columns: 110px 1fr 80px;
-    gap: 14px;
+    grid-template-columns: 155px 1fr 80px;
+    gap: 12px;
     align-items: center;
   }
   .tl-row.clickable {
     cursor: pointer;
-    padding: 4px 8px;
-    margin: -4px -8px;
+    padding: 3px 6px;
+    margin: -3px -6px;
     border-radius: 3px;
     transition: background 120ms ease;
   }
   .tl-row.clickable:hover {
-    background: rgba(61, 82, 64, 0.06);
+    background: rgba(74, 122, 82, 0.06);
   }
-  .tl-row.clickable:hover .tl-name {
-    color: var(--accent);
-  }
-  .tl-row.clickable:hover .tl-bar {
-    filter: brightness(1.08);
-  }
+  .tl-row.clickable:hover .tl-name { color: var(--accent); }
+  .tl-row.clickable:hover .tl-bar { filter: brightness(1.08); }
   .tl-row.clickable:focus-visible {
     outline: 1px solid var(--accent);
     outline-offset: 2px;
   }
   .tl-name {
     font-family: var(--sans);
-    font-size: 11px;
+    font-size: 10.5px;
     font-weight: 500;
     color: var(--ink);
     letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
   }
   .tl-name .code {
     font-family: var(--mono);
-    font-size: 9px;
+    font-size: 8.5px;
     color: var(--accent);
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    margin-right: 6px;
+  }
+  .tl-name .live-pill {
+    font-family: var(--mono);
+    font-size: 6.5px;
+    background: var(--accent);
+    color: var(--bg);
+    padding: 1px 5px;
+    border-radius: 99px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+  }
+  .tl-name .live-pill::before {
+    content: "";
+    width: 4px; height: 4px;
+    background: var(--accent-soft);
+    border-radius: 50%;
   }
   .tl-bar-track {
-    height: 14px;
+    height: 20px;
     background: var(--paper);
     border-radius: 2px;
     border: 0.5pt solid var(--line);
@@ -537,17 +629,17 @@
   }
   .tl-bar {
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 0; bottom: 0;
     background: var(--accent);
     border-radius: 1px;
     display: flex;
     align-items: center;
-    padding: 0 6px;
+    padding: 0 5px;
     color: var(--bg);
-    font-family: var(--mono);
-    font-size: 8px;
-    letter-spacing: 0.04em;
+    font-family: var(--sans);
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
     white-space: nowrap;
     overflow: hidden;
   }
@@ -560,84 +652,45 @@
     background: var(--accent);
   }
   .tl-amt {
-    font-family: var(--mono);
-    font-size: 10px;
+    font-family: var(--sans);
+    font-size: 11px;
     color: var(--ink);
-    letter-spacing: 0.02em;
+    letter-spacing: -0.005em;
     text-align: right;
     font-weight: 500;
   }
   .tl-amt .pct {
-    font-size: 8.5px;
+    font-family: var(--sans);
+    font-style: italic;
+    font-size: 9.5px;
     color: var(--muted);
     display: block;
-    letter-spacing: 0.08em;
+    letter-spacing: -0.005em;
     margin-bottom: 1px;
-    text-transform: uppercase;
     font-weight: 400;
   }
+  .tl-amt.cross { color: var(--accent); }
 
   .tl-axis {
     display: grid;
-    grid-template-columns: 110px 1fr 80px;
-    gap: 14px;
+    grid-template-columns: 155px 1fr 80px;
+    gap: 12px;
     align-items: center;
     margin-top: 4px;
   }
   .tl-axis .ticks {
     display: grid;
-    grid-template-columns: repeat(22, 1fr);
-    font-family: var(--mono);
-    font-size: 7.5px;
-    color: var(--muted);
+    grid-template-columns: repeat(20, 1fr);
+    font-family: var(--sans);
+    font-style: italic;
+    font-size: 9px;
+    color: var(--ink-soft);
     letter-spacing: 0.04em;
   }
   .tl-axis .ticks span { text-align: center; }
   .tl-axis .ticks span.q { color: var(--ink); font-weight: 500; }
 
-  .tl-total {
-    margin-top: 8px;
-    padding-top: 10px;
-    border-top: 0.5pt solid var(--line);
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 18px;
-    font-family: var(--sans);
-    font-size: 12px;
-  }
-  .tl-total .label {
-    color: var(--ink-soft);
-    font-style: italic;
-    flex: 1;
-    min-width: 0;
-    line-height: 1.4;
-  }
-  .tl-total .total {
-    flex-shrink: 0;
-  }
-  .tl-total .label b {
-    font-style: normal;
-    color: var(--ink);
-    font-weight: 500;
-  }
-  .tl-total .total {
-    font-family: var(--sans);
-    font-weight: 500;
-    font-size: 22px;
-    letter-spacing: -0.025em;
-    color: var(--ink);
-  }
-  .tl-total .total .cur {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.04em;
-    margin-right: 6px;
-    font-weight: 400;
-  }
-
-  /* ═════ FOOTER del one-pager ═════ */
+  /* ═════ FOOTER ═════ */
   .footer {
     margin-top: auto;
     display: flex;
@@ -648,57 +701,25 @@
     background: var(--bg);
     z-index: 2;
   }
-  .footer .left {
-    max-width: 60%;
-  }
+  .footer .left { max-width: 60%; }
   .footer .cta-label {
-    font-family: var(--mono);
-    font-size: 9px;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-weight: 500;
+    font-family: var(--sans);
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink-soft);
+    letter-spacing: -0.005em;
+    font-weight: 400;
     margin-bottom: 4px;
   }
   .footer .cta-text {
     font-family: var(--sans);
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.5;
     color: var(--ink-soft);
   }
-  .footer .cta-text strong {
-    color: var(--ink);
-    font-weight: 500;
-  }
-  .footer .sig {
-    text-align: right;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-  .footer .sig-line {
-    font-family: var(--mono);
-    font-size: 8.5px;
-    color: var(--muted);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-  .footer .sig-name {
-    font-family: var(--sans);
-    font-style: italic;
-    font-size: 14px;
-    color: var(--ink);
-  }
-  .footer .sig-role {
-    font-family: var(--mono);
-    font-size: 8.5px;
-    color: var(--muted);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
+  .footer .cta-text strong { color: var(--ink); font-weight: 500; }
 
-  /* ═════ PHASE PAGE SYSTEM (hidden by default, shown via hash router) ═════ */
+  /* ═════ PHASE PAGE SYSTEM ═════ */
   .onepager,
   .phase-page {
     opacity: 1;
@@ -708,20 +729,16 @@
   body.routing .phase-page {
     opacity: 0;
   }
-  .phase-page {
-    display: none;
-  }
-  body.view-phase .onepager {
-    display: none;
-  }
+  .phase-page { display: none; }
+  body.view-phase .onepager { display: none; }
 
-  /* ═════ PHASE BLUEPRINT LAYOUT ═════ */
+  /* phase blueprint */
   .phase-breadcrumb {
-    font-family: var(--mono);
-    font-size: 9px;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink-soft);
+    letter-spacing: -0.005em;
     padding-bottom: 6mm;
     border-bottom: 0.5pt solid var(--line);
   }
@@ -738,6 +755,7 @@
     display: flex;
     align-items: baseline;
     gap: 12px;
+    flex-wrap: wrap;
   }
   .phase-code-mark {
     font-family: var(--mono);
@@ -754,6 +772,18 @@
     letter-spacing: -0.025em;
     line-height: 1;
     color: var(--ink);
+  }
+  .phase-status {
+    font-family: var(--mono);
+    font-size: 8px;
+    background: var(--accent);
+    color: var(--bg);
+    padding: 3px 7px;
+    border-radius: 99px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-left: 4px;
+    vertical-align: middle;
   }
   .phase-subtitle {
     font-family: var(--sans);
@@ -783,22 +813,22 @@
   }
   .phase-mini-fill {
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 0; bottom: 0;
     background: var(--accent);
     border-radius: 1px;
   }
+  .phase-mini-fill.dim {
+    background: transparent;
+    border: 0.5pt dashed var(--accent);
+  }
   .phase-mini-label {
-    font-family: var(--mono);
-    font-size: 9px;
-    color: var(--muted);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-style: italic;
+    font-size: 11px;
+    color: var(--ink-soft);
+    letter-spacing: -0.005em;
   }
-  .phase-mini-label.cur {
-    color: var(--accent);
-    font-weight: 500;
-  }
+  .phase-mini-label.cur { color: var(--accent); font-weight: 500; }
 
   .phase-section {
     display: grid;
@@ -809,11 +839,10 @@
   }
   .phase-section:first-of-type { border-top: none; }
   .phase-section-lbl {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--ink);
+    letter-spacing: -0.005em;
     padding-top: 2px;
     font-weight: 500;
   }
@@ -823,14 +852,8 @@
     color: var(--ink-soft);
     line-height: 1.55;
   }
-  .phase-section-body strong {
-    color: var(--ink);
-    font-weight: 500;
-  }
-  .phase-section-body em {
-    font-style: italic;
-    color: var(--ink);
-  }
+  .phase-section-body strong { color: var(--ink); font-weight: 500; }
+  .phase-section-body em { font-style: italic; color: var(--ink); }
   .phase-section-body ul {
     list-style: none;
     padding: 0;
@@ -858,10 +881,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-style: italic;
+    font-size: 12px;
+    letter-spacing: -0.005em;
   }
   .phase-nav a {
     color: var(--ink-soft);
@@ -873,20 +896,19 @@
   .phase-nav .nxt:hover { color: var(--accent); }
 
   .phase-back {
-    font-family: var(--mono);
-    font-size: 9px;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-family: var(--sans);
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink-soft);
+    letter-spacing: -0.005em;
     text-decoration: none;
     transition: color 120ms ease;
   }
   .phase-back:hover { color: var(--accent); }
 
-  /* ═════ RESPONSIVE · tablet y mobile ═════ */
+  /* ═════ RESPONSIVE ═════ */
   @media (max-width: 900px) {
     body { padding: 0; align-items: stretch; }
-
     .page {
       width: 100%;
       min-height: 100vh;
@@ -894,171 +916,103 @@
       padding: 24px 20px 32px;
       border: none;
       box-shadow: none;
-      gap: 20px;
+      gap: 28px;
       overflow: visible;
     }
-
-    /* TOP BAR */
-    .top {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-      padding-bottom: 16px;
-    }
+    .top { flex-direction: column; align-items: flex-start; gap: 10px; padding-bottom: 16px; }
     .top-meta { text-align: left; }
-
-    /* HERO */
-    .hero-title {
-      font-size: 28px;
-      max-width: 100%;
-      line-height: 1.1;
-    }
+    .hero-title { font-size: 26px; max-width: 100%; line-height: 1.1; }
     .hero-sub { font-size: 13px; line-height: 1.55; }
-
-    /* TECH STRIP */
-    .tech-strip {
-      gap: 6px;
-    }
-    .tech-strip .ts-label.end {
-      margin-left: 0;
-      width: 100%;
-      margin-top: 4px;
-    }
-
-    /* STATS · 4 cols → 2x2 */
+    .sec-head { font-size: 15px; margin-bottom: 12px; }
+    .sec-head::before { height: 16px; }
+    .tech-strip { gap: 6px; font-size: 10.5px; }
+    .tech-strip .tag { font-size: 9.5px; padding: 3px 9px; }
+    .tech-strip .ts-label.end { margin-left: 0; width: 100%; margin-top: 4px; }
     .stats {
       grid-template-columns: 1fr 1fr;
       gap: 12px 0;
       padding: 12px 0;
     }
-    .stat {
-      padding: 4px 12px;
-      border-right: 0.5pt solid var(--line-soft);
-      border-bottom: none;
-    }
+    .stat { padding: 4px 12px; border-right: 0.5pt solid var(--line-soft); border-bottom: none; }
     .stat:nth-child(2n) { border-right: none; padding-right: 0; }
     .stat:nth-child(2n+1) { padding-left: 0; }
-    .stat .v { font-size: 15px; }
-
-    /* COLS · 2 → 1 */
-    .cols {
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-
-    /* GANTT */
-    .tl-row {
-      grid-template-columns: 88px 1fr 56px;
-      gap: 8px;
-    }
+    .stat .v { font-size: 14.5px; }
+    .cols { grid-template-columns: 1fr; gap: 32px; }
+    .tl-row { grid-template-columns: 96px 1fr 60px; gap: 8px; }
     .tl-row.clickable { padding: 6px 6px; margin: -6px -6px; }
-    .tl-name { font-size: 10px; letter-spacing: -0.005em; }
-    .tl-name .code { font-size: 8px; margin-right: 4px; }
-    .tl-bar { font-size: 7px; padding: 0 4px; }
-    .tl-amt { font-size: 9.5px; }
-    .tl-amt .pct { font-size: 7px; }
-
-    .tl-axis {
-      grid-template-columns: 88px 1fr 56px;
-      gap: 8px;
-    }
-    /* solo mostramos los hitos clave en mobile */
-    .tl-axis .ticks {
-      grid-template-columns: repeat(6, 1fr);
-      font-size: 7.5px;
-    }
+    .tl-name { font-size: 11px; letter-spacing: -0.005em; }
+    .tl-name .code { font-size: 9px; }
+    .tl-name .live-pill { font-size: 7px; padding: 1px 5px; }
+    .tl-bar { font-size: 8px; padding: 0 5px; }
+    .tl-amt { font-size: 10.5px; }
+    .tl-amt .pct { font-size: 9px; }
+    .tl-axis { grid-template-columns: 96px 1fr 60px; gap: 8px; }
+    .tl-axis .ticks { grid-template-columns: repeat(5, 1fr); font-size: 9px; }
     .tl-axis .ticks span:not(.q) { display: none; }
-
-    .tl-total {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 8px;
-    }
-    .tl-total .total { font-size: 20px; }
-
-    /* FOOTER */
-    .footer {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 16px;
-    }
+    .timeline { --tl-track-left: 110px; --tl-track-right: 74px; }
+    .footer { flex-direction: column; align-items: flex-start; gap: 16px; }
     .footer .left { max-width: 100%; }
-    .footer .sig {
-      text-align: left;
-      align-items: flex-start;
-    }
     .footer .cta-text { font-size: 13px; }
 
-    /* PHASE VIEW */
-    .phase-breadcrumb {
-      font-size: 9px;
-      padding-bottom: 16px;
-      line-height: 1.5;
-    }
+    /* Major section · cronograma */
+    .major-section { margin-top: 28px; padding-top: 20px; }
+    .major-section .major-title { font-size: 22px; line-height: 1.15; }
+    .major-section .major-hint { font-size: 12px; margin-bottom: 14px; }
+
+    /* Legend bajo el gantt */
+    .tl-legend { font-size: 9px; gap: 3px 10px; }
+
+    /* Inversion block · stack columns en mobile */
+    .inversion-block { margin-top: 28px; padding-top: 20px; }
+    .inversion-grid { grid-template-columns: 1fr; gap: 24px; }
+    .inversion-eyebrow { font-size: 12px; }
+    .price-amount { font-size: 40px; }
+    .price-currency { font-size: 16px; margin-right: 6px; }
+    .price-rate { font-size: 14px; }
+    .price-meta { font-size: 12px; line-height: 1.45; }
+    .inversion-label { font-size: 12px; }
+    .inversion-team ul { font-size: 12.5px; gap: 6px; }
+    .inversion-team li { padding-left: 13px; }
+    .inversion-note { margin-top: 20px; padding-top: 16px; font-size: 11.5px; line-height: 1.55; }
+
+    .phase-breadcrumb { font-size: 11px; padding-bottom: 16px; line-height: 1.5; }
     .phase-hero { padding: 12px 0 20px; }
-    .phase-title-row {
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+    .phase-title-row { flex-wrap: wrap; gap: 8px; }
     .phase-code-mark { font-size: 24px; }
     .phase-title { font-size: 24px; }
-    .phase-subtitle { font-size: 12.5px; }
-
-    .phase-mini-timeline {
-      padding: 12px 0;
-      gap: 8px;
-    }
-    .phase-mini-label { font-size: 8.5px; }
-
-    /* SECCIONES BLUEPRINT · label arriba, contenido abajo */
-    .phase-section {
-      grid-template-columns: 1fr;
-      gap: 6px;
-      padding: 14px 0;
-    }
-    .phase-section-lbl {
-      font-size: 9px;
-      padding-top: 0;
-    }
-    .phase-section-body { font-size: 13px; }
-
-    .phase-nav {
-      flex-wrap: wrap;
-      gap: 12px;
-      font-size: 9.5px;
-    }
+    .phase-subtitle { font-size: 13px; }
+    .phase-mini-timeline { padding: 12px 0; gap: 8px; }
+    .phase-mini-label { font-size: 10px; }
+    .phase-section { grid-template-columns: 1fr; gap: 8px; padding: 16px 0; }
+    .phase-section-lbl { font-size: 11px; padding-top: 0; }
+    .phase-section-body { font-size: 13.5px; }
+    .phase-nav { flex-wrap: wrap; gap: 12px; font-size: 11px; }
   }
 
-  /* mobile chico · iPhone SE etc */
   @media (max-width: 420px) {
-    .page { padding: 20px 16px 28px; }
-    .hero-title { font-size: 24px; }
-    .stat .v { font-size: 14px; }
-    .tl-row { grid-template-columns: 72px 1fr 48px; gap: 6px; }
-    .tl-axis { grid-template-columns: 72px 1fr 48px; gap: 6px; }
-    .tl-bar { font-size: 6.5px; padding: 0 3px; }
-    .tl-name { font-size: 9.5px; }
-    .tl-amt { font-size: 9px; }
+    .page { padding: 20px 16px 28px; gap: 24px; }
+    .hero-title { font-size: 22px; }
+    .stat .v { font-size: 13.5px; }
+    .tl-row { grid-template-columns: 82px 1fr 54px; gap: 6px; }
+    .tl-axis { grid-template-columns: 82px 1fr 54px; gap: 6px; }
+    .timeline { --tl-track-left: 94px; --tl-track-right: 66px; }
+    .tl-bar { font-size: 7.5px; padding: 0 4px; }
+    .tl-name { font-size: 10.5px; }
+    .tl-amt { font-size: 10px; }
+    .tl-amt .pct { font-size: 8.5px; }
     .phase-title { font-size: 22px; }
     .phase-code-mark { font-size: 22px; }
+    .major-section .major-title { font-size: 20px; }
+    .price-amount { font-size: 34px; }
+    .price-currency { font-size: 14px; }
+    .price-rate { font-size: 13px; }
   }
 
   @media print {
     body { padding: 0; background: white; }
-
-    .page {
-      box-shadow: none;
-      border: none;
-      page-break-after: always;
-    }
-
-    /* In print, ALL pages render — the one-pager plus all 5 phase pages */
+    .page { box-shadow: none; border: none; page-break-after: always; }
     .phase-page,
-    body.view-phase .onepager {
-      display: flex !important;
-    }
-
-    /* Hide all interactive affordances in print */
+    body.view-phase .onepager { display: flex !important; }
     .tl-row.clickable {
       cursor: default;
       padding: 0;
@@ -1066,144 +1020,121 @@
       background: transparent !important;
     }
     .phase-back,
-    .phase-nav {
-      display: none !important;
-    }
-
+    .phase-nav { display: none !important; }
     @page { size: A4; margin: 0; }
   }
 </style>
 </head>
 <body>
 
+<!-- ════════════════════════════════════════════════════════════════════
+     ONE-PAGER · RESUMEN EJECUTIVO
+     ════════════════════════════════════════════════════════════════════ -->
 <section class="page onepager">
 
-  <!-- TOP BAR -->
   <div class="top">
     <span class="lockup">
-      <span class="kenco-mark" aria-label="Kenco">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1417.32 708.66"><path d="M404.41 263.83h-81.14l-63.44 89.67H258V220.93h-73.2V474.9H258v-85.4h1.83l65.88 85.4h88.46l-86.02-108.58z"></path><path d="M502.3 258.95c-67.71 0-114.68 46.97-114.68 110.41 0 62.22 45.75 111.63 124.44 111.63 54.9 0 80.52-24.4 80.52-24.4l-23.18-45.75s-19.52 14.03-54.29 14.03c-29.28 0-51.24-12.81-56.73-42.09h151.29s.61-7.32.61-15.25c-.01-64.66-40.88-108.58-107.98-108.58zm-43.31 87.84c5.49-23.79 21.35-34.77 42.7-34.77 22.57 0 37.21 15.25 39.65 34.77h-82.35z"></path><path d="M997.71 419.39c-32.33 0-54.9-19.52-54.9-50.02 0-30.5 22.57-50.02 54.9-50.02 25.62 0 42.09 10.98 42.09 10.98l20.74-53.68s-22.57-17.69-69.54-17.69c-73.81 0-122.01 47.58-122.01 110.41 0 62.22 48.19 110.41 122.01 110.41 46.97 0 68.32-17.69 68.32-17.69l-19.52-53.68c.01 0-16.47 10.98-42.09 10.98z"></path><path d="M1175.56 258.95c-65.88 0-119.57 43.92-119.57 111.63 0 66.49 53.68 109.19 119.57 109.19 65.88 0 120.18-42.7 120.18-109.19-.01-67.71-54.3-111.63-120.18-111.63zm0 162.88c-28.67 0-48.19-20.74-48.19-52.46 0-31.11 19.52-52.46 48.19-52.46 29.28 0 48.8 21.35 48.8 52.46 0 31.72-19.52 52.46-48.8 52.46z"></path><path d="M626.31 263.91v210.91h73.09V330.57h80.14v144.25h73.09V330.57l-73.09-66.66z"></path></svg>
-      </span>
+      <span class="kenco-mark" aria-label="Kenco"><svg xmlns="http://www.w3.org/2000/svg" viewBox="180 220 1120 260"><path d="M404.41 263.83h-81.14l-63.44 89.67H258V220.93h-73.2V474.9H258v-85.4h1.83l65.88 85.4h88.46l-86.02-108.58z"/><path d="M502.3 258.95c-67.71 0-114.68 46.97-114.68 110.41 0 62.22 45.75 111.63 124.44 111.63 54.9 0 80.52-24.4 80.52-24.4l-23.18-45.75s-19.52 14.03-54.29 14.03c-29.28 0-51.24-12.81-56.73-42.09h151.29s.61-7.32.61-15.25c-.01-64.66-40.88-108.58-107.98-108.58zm-43.31 87.84c5.49-23.79 21.35-34.77 42.7-34.77 22.57 0 37.21 15.25 39.65 34.77h-82.35z"/><path d="M997.71 419.39c-32.33 0-54.9-19.52-54.9-50.02 0-30.5 22.57-50.02 54.9-50.02 25.62 0 42.09 10.98 42.09 10.98l20.74-53.68s-22.57-17.69-69.54-17.69c-73.81 0-122.01 47.58-122.01 110.41 0 62.22 48.19 110.41 122.01 110.41 46.97 0 68.32-17.69 68.32-17.69l-19.52-53.68c.01 0-16.47 10.98-42.09 10.98z"/><path d="M1175.56 258.95c-65.88 0-119.57 43.92-119.57 111.63 0 66.49 53.68 109.19 119.57 109.19 65.88 0 120.18-42.7 120.18-109.19-.01-67.71-54.3-111.63-120.18-111.63zm0 162.88c-28.67 0-48.19-20.74-48.19-52.46 0-31.11 19.52-52.46 48.19-52.46 29.28 0 48.8 21.35 48.8 52.46 0 31.72-19.52 52.46-48.8 52.46z"/><path d="M626.31 263.91v210.91h73.09V330.57h80.14v144.25h73.09V330.57l-73.09-66.66z"/></svg></span>
       <span class="x">×</span>
       <span class="cresco-mark">crescō<em>.</em></span>
     </span>
     <div class="top-meta">
-      <span class="pulse"></span><b>Resumen ejecutivo · una página</b><br>
-      Propuesta Kenco · v1.0 · mayo 2026 · documento privado
+      <span class="pulse"></span><b>Propuesta</b><br>
+      Kenco × crescō · V1.0 · Mayo 2026
     </div>
   </div>
 
-  <!-- HERO · F2 · Fase 1 + tech-strip Anthropic -->
   <div class="hero">
-    <span class="eyebrow">Kenco OS</span>
     <h1 class="hero-title">
-      Sistema Operativo de Kenco - Módulo de Imprenta Digital<br>
+      Sistema Operativo de Kenco<br>
+      <em>módulo de imprenta digital</em>
     </h1>
-
-    <div class="stats">
-      <div class="stat">
-        <span class="l">Plazo</span>
-        <span class="v">5.5 meses <em>· 22 sem</em></span>
-      </div>
-      <div class="stat">
-        <span class="l">Inversión</span>
-        <span class="v">USD 18.000</span>
-      </div>
-      <div class="stat">
-        <span class="l">Núcleo · 70%</span>
-        <span class="v">Imprenta <em>digital</em></span>
-      </div>
-    </div>
-
-    <div class="tech-strip">
-      <span class="ts-label">Preparado para</span>
-      <span class="tag solid">Ecosistema Anthropic (Claude, Cowork, Claude Code, Claude Design)</span>
-      <span class="tag">Equipo Interno</span>
-      <span class="tag">Clientes</span>
-      <span class="ts-label end">+ capacitación a todos los niveles</span>
-    </div>
+    <p class="hero-sub">
+      Cinco meses de implementación por fases — desde el descubrimiento y el <strong>Brand AI</strong> hasta el módulo de imprenta digital en producción, con <strong>fundamentos AI en lenguaje Kenco</strong> y capacitación completa al equipo. Cada fase se libera contra firma del entregable: si una no cierra, la siguiente no arranca.
+    </p>
   </div>
 
-  <!-- DOS COLUMNAS -->
   <div class="cols">
 
     <div class="col">
-      <div class="sec-head">Entregables · alineados con las fases</div>
-      <ul class="bullets bullets-phased">
-        <li><span class="code">f1</span><strong>Landing pública + Brand AI</strong> — sitio optimizado con catálogo y CTA de cotizar, más el ADN textual de Kenco listo para humanos e IA.</li>
-        <li><span class="code">f2</span><strong>WhatsApp Business + agente</strong> — guía al usuario a cotizar 24/7, escala a humano cuando hace falta, con lista blanca para clientes especiales.</li>
-        <li><span class="code">f3</span><strong>Imprenta digital sistematizada</strong> — cotizador USD/Bs, hub de órdenes editable, validación IA pre-producción, reportes diarios.</li>
-        <li><span class="code">f4</span><strong>Entorno AI · Anthropic + Notion</strong> — ecosistema Claude conectado a las herramientas de Kenco + workspace Notion con plantillas. Kenco empieza a operar con AI en el centro.</li>
+      <div class="sec-head">Lo que se construye</div>
+      <ul class="bullets">
+        <li><strong>Descubrimiento</strong> · mapa de procesos + auditoría del stack actual + Brand AI v0 que captura cómo habla, cotiza y decide Kenco.</li>
+        <li><strong>Landing pública + Brand AI v1</strong> · sitio optimizado con catálogo navegable, CTA único de cotizar y el cerebro AI desplegado para que cada canal hable Kenco.</li>
+        <li><strong>WhatsApp Business + agente</strong> · agente conversacional que guía a cotizar 24/7, escala a humano cuando hace falta y con whitelist para clientes especiales.</li>
+        <li><strong>Imprenta digital sistematizada</strong> · cotizador USD/Bs con BCV, hub central de órdenes editable, validación IA pre-producción y reporte diario gerencial. <em>Núcleo del sistema.</em></li>
+        <li><strong>Fundamentos AI en lenguaje Kenco</strong> · ecosistema Anthropic conectado a las herramientas reales de Kenco + workspace Notion sugerido con plantillas. La AI entra al centro de la operación.</li>
+        <li><strong>Cierre + formación</strong> · capacitación al equipo (operativa + planta + dirección), skills internas Anthropic y plan de evolución a 12 meses.</li>
       </ul>
     </div>
 
     <div class="col">
       <div class="sec-head">Incluidos en la inversión</div>
       <ul class="bullets">
-        <li><strong>Aviso por whatsapp</strong> al cliente en cada cambio de estado de su orden.</li>
-        <li><strong>Pdf de presupuesto</strong> con marca Kenco enviado por correo en segundos.</li>
+        <li><strong>Brand AI documentado y operable</strong> · documento vivo que define cómo habla, cotiza y decide la AI en nombre de Kenco.</li>
+        <li><strong>Aviso por WhatsApp</strong> al cliente en cada cambio de estado de su orden.</li>
+        <li><strong>PDF de presupuesto</strong> con marca Kenco enviado por correo en segundos.</li>
         <li><strong>Validación automática</strong> de resolución, formato y sangrado antes de producción.</li>
         <li><strong>Reporte diario a gerencia</strong> con ventas, conversión y cuellos de botella.</li>
-        <li><strong>Set de skills internos</strong> para adopción y uso efectivo del ecosistema Anthropic (Claude, Code, Cowork, Design) a nivel operativo y de planta.</li>
-
+        <li><strong>Skills internas Anthropic</strong> + capacitación a todo el equipo (Claude, Code, Cowork, Design).</li>
       </ul>
     </div>
 
   </div>
 
-  <!-- TIMELINE + INVERSIÓN COMBINADOS -->
-  <div>
-    <div class="sec-head">Cronograma + inversión por fase</div>
-    <div class="sec-hint">Click en cualquier fila para abrir el detalle completo de la fase →</div>
+  <div class="major-section">
+    <div class="major-eyebrow">Cómo se entrega</div>
+    <h2 class="major-title">Cronograma · 6 fases secuenciales</h2>
+    <div class="major-hint">Click en cualquier fila para abrir el detalle completo de la fase →</div>
 
     <div class="timeline">
 
-      <div class="tl-row clickable" data-phase="f0" role="link" tabindex="0" aria-label="Ver detalle de f0 Descubrimiento">
+      <div class="tl-row clickable" data-phase="f0" role="link" tabindex="0" aria-label="Ver detalle de f0 descubrimiento">
         <span class="tl-name"><span class="code">f0</span>Descubrimiento</span>
         <div class="tl-bar-track">
-          <div class="tl-bar" style="left: 0%; width: 18.18%;">4 sem</div>
+          <div class="tl-bar" style="left:0%;width:15%">3 sem</div>
         </div>
-        <span class="tl-amt"><span class="pct">10%</span>1.800</span>
+        <span class="tl-amt"><span class="pct">10%</span>$1.200</span>
       </div>
 
-      <div class="tl-row clickable" data-phase="f1" role="link" tabindex="0" aria-label="Ver detalle de f1 Landing + brand ai">
-        <span class="tl-name"><span class="code">f1</span>Landing + brand ai</span>
+      <div class="tl-row clickable" data-phase="f1" role="link" tabindex="0" aria-label="Ver detalle de f1 landing + brand ai">
+        <span class="tl-name"><span class="code">f1</span>Landing + Brand AI</span>
         <div class="tl-bar-track">
-          <div class="tl-bar" style="left: 18.18%; width: 9.09%;">2 sem</div>
+          <div class="tl-bar" style="left:15%;width:10%">2 sem</div>
         </div>
-        <span class="tl-amt"><span class="pct">10%</span>1.800</span>
+        <span class="tl-amt"><span class="pct">10%</span>$1.200</span>
       </div>
 
-      <div class="tl-row clickable" data-phase="f2" role="link" tabindex="0" aria-label="Ver detalle de f2 Whatsapp + agente">
-        <span class="tl-name"><span class="code">f2</span>Whatsapp + agente</span>
+      <div class="tl-row clickable" data-phase="f2" role="link" tabindex="0" aria-label="Ver detalle de f2 whatsapp + agente">
+        <span class="tl-name"><span class="code">f2</span>WhatsApp + agente</span>
         <div class="tl-bar-track">
-          <div class="tl-bar" style="left: 27.27%; width: 9.09%;">2 sem</div>
+          <div class="tl-bar" style="left:25%;width:10%">2 sem</div>
         </div>
-        <span class="tl-amt"><span class="pct">10%</span>1.800</span>
+        <span class="tl-amt"><span class="pct">10%</span>$1.200</span>
       </div>
 
-      <div class="tl-row clickable" data-phase="f3" role="link" tabindex="0" aria-label="Ver detalle de f3 Imprenta digital">
-        <span class="tl-name"><span class="code">f3</span>Imprenta digital</span>
+      <div class="tl-row clickable" data-phase="f3" role="link" tabindex="0" aria-label="Ver detalle de f3 imprenta digital">
+        <span class="tl-name"><span class="code">f3</span>Imprenta digital<span class="live-pill">núcleo</span></span>
         <div class="tl-bar-track">
-          <div class="tl-bar big" style="left: 36.36%; width: 36.36%;">8 sem · 4 iteraciones cresco deck</div>
+          <div class="tl-bar big" style="left:35%;width:40%">8 sem · 4 iteraciones cresco deck</div>
         </div>
-        <span class="tl-amt"><span class="pct">70%</span>12.600</span>
+        <span class="tl-amt"><span class="pct">70%</span>$8.400</span>
       </div>
 
-      <div class="tl-row clickable" data-phase="f4" role="link" tabindex="0" aria-label="Ver detalle de f4 Entorno AI">
-        <span class="tl-name"><span class="code">f4</span>Entorno AI · Anthropic + Notion</span>
+      <div class="tl-row clickable" data-phase="f4" role="link" tabindex="0" aria-label="Ver detalle de f4 fundamentos ai">
+        <span class="tl-name"><span class="code">f4</span>Fundamentos AI en lenguaje Kenco</span>
         <div class="tl-bar-track">
-          <div class="tl-bar dim" style="left: 72.72%; width: 9.09%;">2 sem · sin costo</div>
+          <div class="tl-bar dim" style="left:75%;width:10%">2 sem · sin costo</div>
         </div>
-        <span class="tl-amt"><span class="pct">0%</span>0</span>
+        <span class="tl-amt cross">incluido</span>
       </div>
 
-      <div class="tl-row clickable" data-phase="f5" role="link" tabindex="0" aria-label="Ver detalle de f5 Cierre + formación">
+      <div class="tl-row clickable" data-phase="f5" role="link" tabindex="0" aria-label="Ver detalle de f5 cierre + formación">
         <span class="tl-name"><span class="code">f5</span>Cierre + formación</span>
         <div class="tl-bar-track">
-          <div class="tl-bar dim" style="left: 81.81%; width: 18.18%;">4 sem · sin costo</div>
+          <div class="tl-bar dim" style="left:85%;width:15%">3 sem · sin costo</div>
         </div>
-        <span class="tl-amt"><span class="pct">0%</span>0</span>
+        <span class="tl-amt cross">incluido</span>
       </div>
 
     </div>
@@ -1214,27 +1145,46 @@
         <span class="q">s1</span><span>·</span><span>·</span><span>·</span>
         <span class="q">s5</span><span>·</span><span>·</span><span>·</span><span>·</span>
         <span class="q">s10</span><span>·</span><span>·</span><span>·</span><span>·</span>
-        <span class="q">s15</span><span>·</span><span>·</span><span>·</span><span>·</span>
-        <span class="q">s20</span><span>·</span><span class="q">s22</span>
+        <span class="q">s15</span><span>·</span><span>·</span><span>·</span><span>·</span><span class="q">s20</span>
       </div>
       <span></span>
     </div>
 
-    <div class="tl-total">
-      <span class="label">Cada fase se libera contra firma del entregable · si una no cierra, la siguiente no arranca · <b>la formación final es sin costo.</b></span>
-      <span class="total"><span class="cur">USD</span>18.000</span>
+    <div class="tl-legend">
+      <span class="tl-legend-title">Cómo leer el cronograma</span>
+      <ul class="tl-legend-items">
+        <li><span class="tl-legend-swatch"></span><strong>s1–s20</strong> · semanas del proyecto (5 meses)</li>
+        <li><span class="tl-legend-swatch swatch-solid"></span><strong>Barra sólida</strong> · fase activa con costo</li>
+        <li><span class="tl-legend-swatch swatch-dim"></span><strong>Barra punteada</strong> · fase incluida sin costo (f4 + f5)</li>
+        <li><span class="tl-legend-pill">núcleo</span><strong>Pill verde</strong> · fase principal del sistema</li>
+      </ul>
+    </div>
+
+    <div class="inversion-block">
+      <div class="inversion-eyebrow">Inversión</div>
+      <div class="inversion-grid">
+        <div class="inversion-price">
+          <div class="price-amount"><span class="price-currency">USD</span>12.000<span class="price-rate"> total</span></div>
+          <div class="price-meta">5 meses · 20 semanas · 6 fases · pago contra firma</div>
+        </div>
+        <div class="inversion-team">
+          <div class="inversion-label">El alcance</div>
+          <ul>
+            <li>Cotizador USD/Bs sincronizado con BCV</li>
+            <li>Hub central de órdenes editable</li>
+            <li>Agente WhatsApp con Brand AI</li>
+            <li>Validación IA pre-producción</li>
+            <li>Ecosistema Anthropic operativo</li>
+            <li>Capacitación a todo el equipo</li>
+          </ul>
+        </div>
+      </div>
+      <p class="inversion-note">
+        <em>Cada fase se libera contra firma del entregable. Los fundamentos AI (f4) y el cierre + formación (f5) van incluidos sin costo adicional dentro del alcance del proyecto.</em>
+      </p>
     </div>
   </div>
 
-  <!-- FOOTER · CTA + FIRMA -->
-  <div class="footer">
-    <div class="left">
-      <div class="cta-label">Próximo paso</div>
-      <div class="cta-text">
-        Reunión de alineación de 45 minutos con el equipo directivo para confirmar alcance y arranque · <strong>luego firma del contrato marco</strong> y kickoff del descubrimiento.
-      </div>
-    </div>
-  </div>
 
 </section>
 
@@ -1245,17 +1195,15 @@
 
   <div class="top">
     <span class="lockup">
-      <span class="kenco-mark" aria-label="Kenco">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1417.32 708.66"><path d="M404.41 263.83h-81.14l-63.44 89.67H258V220.93h-73.2V474.9H258v-85.4h1.83l65.88 85.4h88.46l-86.02-108.58z"></path><path d="M502.3 258.95c-67.71 0-114.68 46.97-114.68 110.41 0 62.22 45.75 111.63 124.44 111.63 54.9 0 80.52-24.4 80.52-24.4l-23.18-45.75s-19.52 14.03-54.29 14.03c-29.28 0-51.24-12.81-56.73-42.09h151.29s.61-7.32.61-15.25c-.01-64.66-40.88-108.58-107.98-108.58zm-43.31 87.84c5.49-23.79 21.35-34.77 42.7-34.77 22.57 0 37.21 15.25 39.65 34.77h-82.35z"></path><path d="M997.71 419.39c-32.33 0-54.9-19.52-54.9-50.02 0-30.5 22.57-50.02 54.9-50.02 25.62 0 42.09 10.98 42.09 10.98l20.74-53.68s-22.57-17.69-69.54-17.69c-73.81 0-122.01 47.58-122.01 110.41 0 62.22 48.19 110.41 122.01 110.41 46.97 0 68.32-17.69 68.32-17.69l-19.52-53.68c.01 0-16.47 10.98-42.09 10.98z"></path><path d="M1175.56 258.95c-65.88 0-119.57 43.92-119.57 111.63 0 66.49 53.68 109.19 119.57 109.19 65.88 0 120.18-42.7 120.18-109.19-.01-67.71-54.3-111.63-120.18-111.63zm0 162.88c-28.67 0-48.19-20.74-48.19-52.46 0-31.11 19.52-52.46 48.19-52.46 29.28 0 48.8 21.35 48.8 52.46 0 31.72-19.52 52.46-48.8 52.46z"></path><path d="M626.31 263.91v210.91h73.09V330.57h80.14v144.25h73.09V330.57l-73.09-66.66z"></path></svg>
-      </span>
+      <span class="kenco-mark" aria-label="Kenco"><svg xmlns="http://www.w3.org/2000/svg" viewBox="180 220 1120 260"><path d="M404.41 263.83h-81.14l-63.44 89.67H258V220.93h-73.2V474.9H258v-85.4h1.83l65.88 85.4h88.46l-86.02-108.58z"/><path d="M502.3 258.95c-67.71 0-114.68 46.97-114.68 110.41 0 62.22 45.75 111.63 124.44 111.63 54.9 0 80.52-24.4 80.52-24.4l-23.18-45.75s-19.52 14.03-54.29 14.03c-29.28 0-51.24-12.81-56.73-42.09h151.29s.61-7.32.61-15.25c-.01-64.66-40.88-108.58-107.98-108.58zm-43.31 87.84c5.49-23.79 21.35-34.77 42.7-34.77 22.57 0 37.21 15.25 39.65 34.77h-82.35z"/><path d="M997.71 419.39c-32.33 0-54.9-19.52-54.9-50.02 0-30.5 22.57-50.02 54.9-50.02 25.62 0 42.09 10.98 42.09 10.98l20.74-53.68s-22.57-17.69-69.54-17.69c-73.81 0-122.01 47.58-122.01 110.41 0 62.22 48.19 110.41 122.01 110.41 46.97 0 68.32-17.69 68.32-17.69l-19.52-53.68c.01 0-16.47 10.98-42.09 10.98z"/><path d="M1175.56 258.95c-65.88 0-119.57 43.92-119.57 111.63 0 66.49 53.68 109.19 119.57 109.19 65.88 0 120.18-42.7 120.18-109.19-.01-67.71-54.3-111.63-120.18-111.63zm0 162.88c-28.67 0-48.19-20.74-48.19-52.46 0-31.11 19.52-52.46 48.19-52.46 29.28 0 48.8 21.35 48.8 52.46 0 31.72-19.52 52.46-48.8 52.46z"/><path d="M626.31 263.91v210.91h73.09V330.57h80.14v144.25h73.09V330.57l-73.09-66.66z"/></svg></span>
       <span class="x">×</span>
       <span class="cresco-mark">crescō<em>.</em></span>
     </span>
-    <a href="#" class="phase-back">← volver al one-pager</a>
+    <a href="#" class="phase-back">← Volver a la propuesta</a>
   </div>
 
   <div class="phase-breadcrumb">
-    propuesta <span class="sep">/</span> fases <span class="sep">/</span> <span class="current">f0 descubrimiento</span>
+    Propuesta <span class="sep">/</span> Fases <span class="sep">/</span> <span class="current">F0 · Descubrimiento</span>
   </div>
 
   <div class="phase-hero">
@@ -1263,31 +1211,31 @@
       <span class="phase-code-mark">f0/</span>
       <span class="phase-title">Descubrimiento</span>
     </div>
-    <span class="phase-subtitle">Del flujo real al primer trazo de arquitectura · 4 semanas · 10% · USD 1.800</span>
+    <span class="phase-subtitle">Del flujo real al primer trazo de arquitectura · 3 semanas · 10% · USD 1.200</span>
   </div>
 
   <div class="phase-mini-timeline">
     <span class="phase-mini-label cur">sem 1</span>
-    <div class="phase-mini-bar"><div class="phase-mini-fill" style="left: 0%; width: 18.18%;"></div></div>
-    <span class="phase-mini-label">sem 22</span>
+    <div class="phase-mini-bar"><div class="phase-mini-fill" style="left:0%;width:15%;"></div></div>
+    <span class="phase-mini-label">sem 20</span>
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">qué hacemos</div>
+    <div class="phase-section-lbl">¿Qué hacemos?</div>
     <div class="phase-section-body">
-      Acompañamos al equipo durante 4 semanas con <strong>sesiones mayormente remotas y algunas presenciales en el espacio de Kenco</strong>. Trabajamos con planta, ventas y dirección para auditar el stack actual, mapear cómo entra una orden, cómo se cotiza, cómo se valida un arte — y para construir juntos el primer <strong>Brand AI</strong>: el documento que captura cómo se ve, cómo habla y cómo decide Kenco.
+      Acompañamos al equipo durante 3 semanas con <strong>sesiones mayormente remotas y algunas presenciales en el espacio de Kenco</strong>. Trabajamos con planta, ventas y dirección para auditar el stack actual, mapear cómo entra una orden, cómo se cotiza, cómo se valida un arte — y para construir juntos el primer <strong>Brand AI</strong>: el documento que captura cómo se ve, cómo habla y cómo decide Kenco.
     </div>
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">por qué importa</div>
+    <div class="phase-section-lbl">¿Por qué importa?</div>
     <div class="phase-section-body">
-      Sin descubrimiento, el sistema se construye sobre supuestos. Aquí capturamos los matices que diferencian a Kenco — los que un saaS genérico no podría replicar. <strong>El Brand AI, en particular, es el corazón de todo lo que viene</strong>: sin él, cada cotización, cada whatsapp y cada email generado por AI sonarían genéricos. Con él, toda interacción — humana o automática — conserva la voz, el criterio y la personalidad de Kenco.
+      Sin descubrimiento, el sistema se construye sobre supuestos. Aquí capturamos los matices que diferencian a Kenco — los que un saaS genérico no podría replicar. <strong>El Brand AI, en particular, es el corazón de todo lo que viene</strong>: sin él, cada cotización, cada WhatsApp y cada email generado por AI sonarían genéricos. Con él, toda interacción — humana o automática — conserva la voz, el criterio y la personalidad de Kenco.
     </div>
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">entregables</div>
+    <div class="phase-section-lbl">Entregables</div>
     <div class="phase-section-body">
       <ul>
         <li>Mapa de procesos de imprenta digital</li>
@@ -1299,22 +1247,22 @@
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">cuando está listo</div>
+    <div class="phase-section-lbl">¿Cuándo está listo?</div>
     <div class="phase-section-body">
-      <strong>Firma del documento f0 por dirección.</strong> Sin firma, f1 no arranca. La validación es del mapa, no del código.
+      <strong>Firma del documento F0 por dirección.</strong> Sin firma, F1 no arranca. La validación es del mapa, no del código.
     </div>
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">inversión</div>
+    <div class="phase-section-lbl">Inversión</div>
     <div class="phase-section-body">
-      <strong>USD 1.800</strong> · 10% del proyecto · liberado contra firma del entregable
+      <strong>USD 1.200</strong> · 10% del proyecto · liberado contra firma del entregable.
     </div>
   </div>
 
   <div class="phase-nav">
-    <a href="#" class="prev">← propuesta</a>
-    <a href="#f1" class="nxt">f1 landing + brand ai →</a>
+    <a href="#" class="prev">← Propuesta</a>
+    <a href="#f1" class="nxt">F1 · Landing + Brand AI →</a>
   </div>
 
 </section>
@@ -1326,17 +1274,15 @@
 
   <div class="top">
     <span class="lockup">
-      <span class="kenco-mark" aria-label="Kenco">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1417.32 708.66"><path d="M404.41 263.83h-81.14l-63.44 89.67H258V220.93h-73.2V474.9H258v-85.4h1.83l65.88 85.4h88.46l-86.02-108.58z"></path><path d="M502.3 258.95c-67.71 0-114.68 46.97-114.68 110.41 0 62.22 45.75 111.63 124.44 111.63 54.9 0 80.52-24.4 80.52-24.4l-23.18-45.75s-19.52 14.03-54.29 14.03c-29.28 0-51.24-12.81-56.73-42.09h151.29s.61-7.32.61-15.25c-.01-64.66-40.88-108.58-107.98-108.58zm-43.31 87.84c5.49-23.79 21.35-34.77 42.7-34.77 22.57 0 37.21 15.25 39.65 34.77h-82.35z"></path><path d="M997.71 419.39c-32.33 0-54.9-19.52-54.9-50.02 0-30.5 22.57-50.02 54.9-50.02 25.62 0 42.09 10.98 42.09 10.98l20.74-53.68s-22.57-17.69-69.54-17.69c-73.81 0-122.01 47.58-122.01 110.41 0 62.22 48.19 110.41 122.01 110.41 46.97 0 68.32-17.69 68.32-17.69l-19.52-53.68c.01 0-16.47 10.98-42.09 10.98z"></path><path d="M1175.56 258.95c-65.88 0-119.57 43.92-119.57 111.63 0 66.49 53.68 109.19 119.57 109.19 65.88 0 120.18-42.7 120.18-109.19-.01-67.71-54.3-111.63-120.18-111.63zm0 162.88c-28.67 0-48.19-20.74-48.19-52.46 0-31.11 19.52-52.46 48.19-52.46 29.28 0 48.8 21.35 48.8 52.46 0 31.72-19.52 52.46-48.8 52.46z"></path><path d="M626.31 263.91v210.91h73.09V330.57h80.14v144.25h73.09V330.57l-73.09-66.66z"></path></svg>
-      </span>
+      <span class="kenco-mark" aria-label="Kenco"><svg xmlns="http://www.w3.org/2000/svg" viewBox="180 220 1120 260"><path d="M404.41 263.83h-81.14l-63.44 89.67H258V220.93h-73.2V474.9H258v-85.4h1.83l65.88 85.4h88.46l-86.02-108.58z"/><path d="M502.3 258.95c-67.71 0-114.68 46.97-114.68 110.41 0 62.22 45.75 111.63 124.44 111.63 54.9 0 80.52-24.4 80.52-24.4l-23.18-45.75s-19.52 14.03-54.29 14.03c-29.28 0-51.24-12.81-56.73-42.09h151.29s.61-7.32.61-15.25c-.01-64.66-40.88-108.58-107.98-108.58zm-43.31 87.84c5.49-23.79 21.35-34.77 42.7-34.77 22.57 0 37.21 15.25 39.65 34.77h-82.35z"/><path d="M997.71 419.39c-32.33 0-54.9-19.52-54.9-50.02 0-30.5 22.57-50.02 54.9-50.02 25.62 0 42.09 10.98 42.09 10.98l20.74-53.68s-22.57-17.69-69.54-17.69c-73.81 0-122.01 47.58-122.01 110.41 0 62.22 48.19 110.41 122.01 110.41 46.97 0 68.32-17.69 68.32-17.69l-19.52-53.68c.01 0-16.47 10.98-42.09 10.98z"/><path d="M1175.56 258.95c-65.88 0-119.57 43.92-119.57 111.63 0 66.49 53.68 109.19 119.57 109.19 65.88 0 120.18-42.7 120.18-109.19-.01-67.71-54.3-111.63-120.18-111.63zm0 162.88c-28.67 0-48.19-20.74-48.19-52.46 0-31.11 19.52-52.46 48.19-52.46 29.28 0 48.8 21.35 48.8 52.46 0 31.72-19.52 52.46-48.8 52.46z"/><path d="M626.31 263.91v210.91h73.09V330.57h80.14v144.25h73.09V330.57l-73.09-66.66z"/></svg></span>
       <span class="x">×</span>
       <span class="cresco-mark">crescō<em>.</em></span>
     </span>
-    <a href="#" class="phase-back">← volver al one-pager</a>
+    <a href="#" class="phase-back">← Volver a la propuesta</a>
   </div>
 
   <div class="phase-breadcrumb">
-    propuesta <span class="sep">/</span> fases <span class="sep">/</span> <span class="current">f1 landing + brand ai</span>
+    Propuesta <span class="sep">/</span> Fases <span class="sep">/</span> <span class="current">F1 · Landing + Brand AI</span>
   </div>
 
   <div class="phase-hero">
@@ -1344,36 +1290,36 @@
       <span class="phase-code-mark">f1/</span>
       <span class="phase-title">Landing + Brand AI</span>
     </div>
-    <span class="phase-subtitle">Primer contacto comercial + ADN textual para humanos e IA · 2 semanas · 10% · USD 1.800</span>
+    <span class="phase-subtitle">Primer contacto comercial + ADN textual para humanos e IA · 2 semanas · 10% · USD 1.200</span>
   </div>
 
   <div class="phase-mini-timeline">
     <span class="phase-mini-label">sem 1</span>
-    <div class="phase-mini-bar"><div class="phase-mini-fill" style="left: 18.18%; width: 9.09%;"></div></div>
-    <span class="phase-mini-label cur">sem 5–6</span>
+    <div class="phase-mini-bar"><div class="phase-mini-fill" style="left:15%;width:10%;"></div></div>
+    <span class="phase-mini-label cur">sem 4–5</span>
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">qué hacemos</div>
+    <div class="phase-section-lbl">¿Qué hacemos?</div>
     <div class="phase-section-body">
       Construcción del <strong>sitio público optimizado para conversión</strong> con catálogo navegable y un CTA único: cotizar. En paralelo, activación del Brand AI organizacional — el documento vivo que define cómo habla Kenco en cada canal.
     </div>
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">por qué importa</div>
+    <div class="phase-section-lbl">¿Por qué importa?</div>
     <div class="phase-section-body">
       La landing es el primer punto de contacto comercial. El <strong>Brand AI es el ADN textual</strong> que asegura coherencia en cada WhatsApp, cada email, cada cotización generada por el agente. Sin él, cada canal suena distinto.
     </div>
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">entregables</div>
+    <div class="phase-section-lbl">Entregables</div>
     <div class="phase-section-body">
       <ul>
         <li>Landing pública responsive (desktop + mobile)</li>
         <li>Catálogo de productos navegable</li>
-        <li>CTA de cotización integrado al agente de f2</li>
+        <li>CTA de cotización integrado al agente de F2</li>
         <li>Brand AI v1 desplegado y operable por el equipo</li>
         <li>Esqueleto SEO técnico</li>
       </ul>
@@ -1381,22 +1327,22 @@
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">cuando está listo</div>
+    <div class="phase-section-lbl">¿Cuándo está listo?</div>
     <div class="phase-section-body">
       <strong>Landing en producción</strong> con dominio Kenco apuntado, y <strong>Brand AI utilizable</strong> por el equipo para validar mensajes.
     </div>
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">inversión</div>
+    <div class="phase-section-lbl">Inversión</div>
     <div class="phase-section-body">
-      <strong>USD 1.800</strong> · 10% del proyecto · liberado contra firma del entregable
+      <strong>USD 1.200</strong> · 10% del proyecto · liberado contra firma del entregable.
     </div>
   </div>
 
   <div class="phase-nav">
-    <a href="#f0" class="prev">← f0 descubrimiento</a>
-    <a href="#f2" class="nxt">f2 whatsapp + agente →</a>
+    <a href="#f0" class="prev">← F0 · Descubrimiento</a>
+    <a href="#f2" class="nxt">F2 · WhatsApp + agente →</a>
   </div>
 
 </section>
@@ -1408,17 +1354,15 @@
 
   <div class="top">
     <span class="lockup">
-      <span class="kenco-mark" aria-label="Kenco">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1417.32 708.66"><path d="M404.41 263.83h-81.14l-63.44 89.67H258V220.93h-73.2V474.9H258v-85.4h1.83l65.88 85.4h88.46l-86.02-108.58z"></path><path d="M502.3 258.95c-67.71 0-114.68 46.97-114.68 110.41 0 62.22 45.75 111.63 124.44 111.63 54.9 0 80.52-24.4 80.52-24.4l-23.18-45.75s-19.52 14.03-54.29 14.03c-29.28 0-51.24-12.81-56.73-42.09h151.29s.61-7.32.61-15.25c-.01-64.66-40.88-108.58-107.98-108.58zm-43.31 87.84c5.49-23.79 21.35-34.77 42.7-34.77 22.57 0 37.21 15.25 39.65 34.77h-82.35z"></path><path d="M997.71 419.39c-32.33 0-54.9-19.52-54.9-50.02 0-30.5 22.57-50.02 54.9-50.02 25.62 0 42.09 10.98 42.09 10.98l20.74-53.68s-22.57-17.69-69.54-17.69c-73.81 0-122.01 47.58-122.01 110.41 0 62.22 48.19 110.41 122.01 110.41 46.97 0 68.32-17.69 68.32-17.69l-19.52-53.68c.01 0-16.47 10.98-42.09 10.98z"></path><path d="M1175.56 258.95c-65.88 0-119.57 43.92-119.57 111.63 0 66.49 53.68 109.19 119.57 109.19 65.88 0 120.18-42.7 120.18-109.19-.01-67.71-54.3-111.63-120.18-111.63zm0 162.88c-28.67 0-48.19-20.74-48.19-52.46 0-31.11 19.52-52.46 48.19-52.46 29.28 0 48.8 21.35 48.8 52.46 0 31.72-19.52 52.46-48.8 52.46z"></path><path d="M626.31 263.91v210.91h73.09V330.57h80.14v144.25h73.09V330.57l-73.09-66.66z"></path></svg>
-      </span>
+      <span class="kenco-mark" aria-label="Kenco"><svg xmlns="http://www.w3.org/2000/svg" viewBox="180 220 1120 260"><path d="M404.41 263.83h-81.14l-63.44 89.67H258V220.93h-73.2V474.9H258v-85.4h1.83l65.88 85.4h88.46l-86.02-108.58z"/><path d="M502.3 258.95c-67.71 0-114.68 46.97-114.68 110.41 0 62.22 45.75 111.63 124.44 111.63 54.9 0 80.52-24.4 80.52-24.4l-23.18-45.75s-19.52 14.03-54.29 14.03c-29.28 0-51.24-12.81-56.73-42.09h151.29s.61-7.32.61-15.25c-.01-64.66-40.88-108.58-107.98-108.58zm-43.31 87.84c5.49-23.79 21.35-34.77 42.7-34.77 22.57 0 37.21 15.25 39.65 34.77h-82.35z"/><path d="M997.71 419.39c-32.33 0-54.9-19.52-54.9-50.02 0-30.5 22.57-50.02 54.9-50.02 25.62 0 42.09 10.98 42.09 10.98l20.74-53.68s-22.57-17.69-69.54-17.69c-73.81 0-122.01 47.58-122.01 110.41 0 62.22 48.19 110.41 122.01 110.41 46.97 0 68.32-17.69 68.32-17.69l-19.52-53.68c.01 0-16.47 10.98-42.09 10.98z"/><path d="M1175.56 258.95c-65.88 0-119.57 43.92-119.57 111.63 0 66.49 53.68 109.19 119.57 109.19 65.88 0 120.18-42.7 120.18-109.19-.01-67.71-54.3-111.63-120.18-111.63zm0 162.88c-28.67 0-48.19-20.74-48.19-52.46 0-31.11 19.52-52.46 48.19-52.46 29.28 0 48.8 21.35 48.8 52.46 0 31.72-19.52 52.46-48.8 52.46z"/><path d="M626.31 263.91v210.91h73.09V330.57h80.14v144.25h73.09V330.57l-73.09-66.66z"/></svg></span>
       <span class="x">×</span>
       <span class="cresco-mark">crescō<em>.</em></span>
     </span>
-    <a href="#" class="phase-back">← volver al one-pager</a>
+    <a href="#" class="phase-back">← Volver a la propuesta</a>
   </div>
 
   <div class="phase-breadcrumb">
-    propuesta <span class="sep">/</span> fases <span class="sep">/</span> <span class="current">f2 whatsapp + agente</span>
+    Propuesta <span class="sep">/</span> Fases <span class="sep">/</span> <span class="current">F2 · WhatsApp + agente</span>
   </div>
 
   <div class="phase-hero">
@@ -1426,31 +1370,31 @@
       <span class="phase-code-mark">f2/</span>
       <span class="phase-title">WhatsApp + agente</span>
     </div>
-    <span class="phase-subtitle">Donde Kenco ya conversa, ahora también cotiza 24/7 · 2 semanas · 10% · USD 1.800</span>
+    <span class="phase-subtitle">Donde Kenco ya conversa, ahora también cotiza 24/7 · 2 semanas · 10% · USD 1.200</span>
   </div>
 
   <div class="phase-mini-timeline">
     <span class="phase-mini-label">sem 1</span>
-    <div class="phase-mini-bar"><div class="phase-mini-fill" style="left: 27.27%; width: 9.09%;"></div></div>
-    <span class="phase-mini-label cur">sem 7–8</span>
+    <div class="phase-mini-bar"><div class="phase-mini-fill" style="left:25%;width:10%;"></div></div>
+    <span class="phase-mini-label cur">sem 6–7</span>
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">qué hacemos</div>
+    <div class="phase-section-lbl">¿Qué hacemos?</div>
     <div class="phase-section-body">
       Integración de <strong>WhatsApp Business API</strong> con un agente conversacional que habla Brand AI, guía al usuario a cotizar y escala a un humano cuando se requiere. Configuración de <em>whitelist</em> para clientes especiales que siempre serán atendidos por personas.
     </div>
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">por qué importa</div>
+    <div class="phase-section-lbl">¿Por qué importa?</div>
     <div class="phase-section-body">
       WhatsApp es donde Kenco ya conversa todos los días. El agente <strong>captura demanda 24/7 sin perder la esencia humana</strong> que diferencia a Kenco. La whitelist asegura que los clientes top nunca sientan que hablan con una máquina.
     </div>
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">entregables</div>
+    <div class="phase-section-lbl">Entregables</div>
     <div class="phase-section-body">
       <ul>
         <li>Número WhatsApp Business productivo</li>
@@ -1463,76 +1407,75 @@
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">cuando está listo</div>
+    <div class="phase-section-lbl">¿Cuándo está listo?</div>
     <div class="phase-section-body">
       <strong>Primera cotización generada por el agente y aprobada por el cliente final</strong>, medida en producción.
     </div>
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">inversión</div>
+    <div class="phase-section-lbl">Inversión</div>
     <div class="phase-section-body">
-      <strong>USD 1.800</strong> · 10% del proyecto · liberado contra firma del entregable
+      <strong>USD 1.200</strong> · 10% del proyecto · liberado contra firma del entregable.
     </div>
   </div>
 
   <div class="phase-nav">
-    <a href="#f1" class="prev">← f1 landing + brand ai</a>
-    <a href="#f3" class="nxt">f3 imprenta digital →</a>
+    <a href="#f1" class="prev">← F1 · Landing + Brand AI</a>
+    <a href="#f3" class="nxt">F3 · Imprenta digital →</a>
   </div>
 
 </section>
 
 <!-- ════════════════════════════════════════════════════════════════════
-     F3 · IMPRENTA DIGITAL (núcleo · 70%)
+     F3 · IMPRENTA DIGITAL · núcleo · 70%
      ════════════════════════════════════════════════════════════════════ -->
 <section class="page phase-page" id="f3">
 
   <div class="top">
     <span class="lockup">
-      <span class="kenco-mark" aria-label="Kenco">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1417.32 708.66"><path d="M404.41 263.83h-81.14l-63.44 89.67H258V220.93h-73.2V474.9H258v-85.4h1.83l65.88 85.4h88.46l-86.02-108.58z"></path><path d="M502.3 258.95c-67.71 0-114.68 46.97-114.68 110.41 0 62.22 45.75 111.63 124.44 111.63 54.9 0 80.52-24.4 80.52-24.4l-23.18-45.75s-19.52 14.03-54.29 14.03c-29.28 0-51.24-12.81-56.73-42.09h151.29s.61-7.32.61-15.25c-.01-64.66-40.88-108.58-107.98-108.58zm-43.31 87.84c5.49-23.79 21.35-34.77 42.7-34.77 22.57 0 37.21 15.25 39.65 34.77h-82.35z"></path><path d="M997.71 419.39c-32.33 0-54.9-19.52-54.9-50.02 0-30.5 22.57-50.02 54.9-50.02 25.62 0 42.09 10.98 42.09 10.98l20.74-53.68s-22.57-17.69-69.54-17.69c-73.81 0-122.01 47.58-122.01 110.41 0 62.22 48.19 110.41 122.01 110.41 46.97 0 68.32-17.69 68.32-17.69l-19.52-53.68c.01 0-16.47 10.98-42.09 10.98z"></path><path d="M1175.56 258.95c-65.88 0-119.57 43.92-119.57 111.63 0 66.49 53.68 109.19 119.57 109.19 65.88 0 120.18-42.7 120.18-109.19-.01-67.71-54.3-111.63-120.18-111.63zm0 162.88c-28.67 0-48.19-20.74-48.19-52.46 0-31.11 19.52-52.46 48.19-52.46 29.28 0 48.8 21.35 48.8 52.46 0 31.72-19.52 52.46-48.8 52.46z"></path><path d="M626.31 263.91v210.91h73.09V330.57h80.14v144.25h73.09V330.57l-73.09-66.66z"></path></svg>
-      </span>
+      <span class="kenco-mark" aria-label="Kenco"><svg xmlns="http://www.w3.org/2000/svg" viewBox="180 220 1120 260"><path d="M404.41 263.83h-81.14l-63.44 89.67H258V220.93h-73.2V474.9H258v-85.4h1.83l65.88 85.4h88.46l-86.02-108.58z"/><path d="M502.3 258.95c-67.71 0-114.68 46.97-114.68 110.41 0 62.22 45.75 111.63 124.44 111.63 54.9 0 80.52-24.4 80.52-24.4l-23.18-45.75s-19.52 14.03-54.29 14.03c-29.28 0-51.24-12.81-56.73-42.09h151.29s.61-7.32.61-15.25c-.01-64.66-40.88-108.58-107.98-108.58zm-43.31 87.84c5.49-23.79 21.35-34.77 42.7-34.77 22.57 0 37.21 15.25 39.65 34.77h-82.35z"/><path d="M997.71 419.39c-32.33 0-54.9-19.52-54.9-50.02 0-30.5 22.57-50.02 54.9-50.02 25.62 0 42.09 10.98 42.09 10.98l20.74-53.68s-22.57-17.69-69.54-17.69c-73.81 0-122.01 47.58-122.01 110.41 0 62.22 48.19 110.41 122.01 110.41 46.97 0 68.32-17.69 68.32-17.69l-19.52-53.68c.01 0-16.47 10.98-42.09 10.98z"/><path d="M1175.56 258.95c-65.88 0-119.57 43.92-119.57 111.63 0 66.49 53.68 109.19 119.57 109.19 65.88 0 120.18-42.7 120.18-109.19-.01-67.71-54.3-111.63-120.18-111.63zm0 162.88c-28.67 0-48.19-20.74-48.19-52.46 0-31.11 19.52-52.46 48.19-52.46 29.28 0 48.8 21.35 48.8 52.46 0 31.72-19.52 52.46-48.8 52.46z"/><path d="M626.31 263.91v210.91h73.09V330.57h80.14v144.25h73.09V330.57l-73.09-66.66z"/></svg></span>
       <span class="x">×</span>
       <span class="cresco-mark">crescō<em>.</em></span>
     </span>
-    <a href="#" class="phase-back">← volver al one-pager</a>
+    <a href="#" class="phase-back">← Volver a la propuesta</a>
   </div>
 
   <div class="phase-breadcrumb">
-    propuesta <span class="sep">/</span> fases <span class="sep">/</span> <span class="current">f3 imprenta digital · núcleo</span>
+    Propuesta <span class="sep">/</span> Fases <span class="sep">/</span> <span class="current">F3 · Imprenta digital · núcleo</span>
   </div>
 
   <div class="phase-hero">
     <div class="phase-title-row">
       <span class="phase-code-mark">f3/</span>
       <span class="phase-title">Imprenta digital</span>
+      <span class="phase-status">núcleo</span>
     </div>
-    <span class="phase-subtitle">El núcleo del Sistema Operativo · 8 semanas · 4 ciclos cresco deck · 70% · USD 12.600</span>
+    <span class="phase-subtitle">El núcleo del Sistema Operativo · 8 semanas · 4 iteraciones cresco deck · 70% · USD 8.400</span>
   </div>
 
   <div class="phase-mini-timeline">
     <span class="phase-mini-label">sem 1</span>
-    <div class="phase-mini-bar"><div class="phase-mini-fill" style="left: 36.36%; width: 36.36%;"></div></div>
-    <span class="phase-mini-label cur">sem 9–16</span>
+    <div class="phase-mini-bar"><div class="phase-mini-fill" style="left:35%;width:40%;"></div></div>
+    <span class="phase-mini-label cur">sem 8–15</span>
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">qué hacemos</div>
+    <div class="phase-section-lbl">¿Qué hacemos?</div>
     <div class="phase-section-body">
       El módulo central. <strong>Cotizador inteligente USD/Bs</strong> conectado al BCV, <strong>hub central de órdenes editable</strong> para ventas y planta, <strong>validación con IA</strong> de resolución/formato/sangrado antes de que el arte llegue a producción, y reportes gerenciales automáticos. Construido en <strong>4 iteraciones de 2 semanas con metodología cresco deck</strong> — cada ciclo arranca con sesiones de cocreación y termina con software en uso.
     </div>
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">por qué importa</div>
+    <div class="phase-section-lbl">¿Por qué importa?</div>
     <div class="phase-section-body">
       Es donde se materializa la operación. <strong>ROI directo:</strong> cada hora ahorrada en cotización manual, cada arte validado antes de máquina, cada reporte que llega solo a las 9am — todo es tiempo y dinero recuperado. Concentra el 70% del esfuerzo porque es el corazón del negocio.
     </div>
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">entregables</div>
+    <div class="phase-section-lbl">Entregables</div>
     <div class="phase-section-body">
       <ul>
         <li>Cotizador USD/Bs sincronizado con BCV</li>
@@ -1546,76 +1489,75 @@
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">cuando está listo</div>
+    <div class="phase-section-lbl">¿Cuándo está listo?</div>
     <div class="phase-section-body">
       <strong>4 iteraciones firmadas por dirección</strong> y <strong>sistema en uso real por planta</strong>. Cada ciclo se libera contra firma — si una iteración no cierra, la siguiente no arranca.
     </div>
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">inversión</div>
+    <div class="phase-section-lbl">Inversión</div>
     <div class="phase-section-body">
-      <strong>USD 12.600</strong> · 70% del proyecto · liberado por cada iteración cresco deck firmada (4 × USD 3.150)
+      <strong>USD 8.400</strong> · 70% del proyecto · liberado por cada iteración cresco deck firmada (4 × USD 2.100).
     </div>
   </div>
 
   <div class="phase-nav">
-    <a href="#f2" class="prev">← f2 whatsapp + agente</a>
-    <a href="#f4" class="nxt">f4 entorno ai →</a>
+    <a href="#f2" class="prev">← F2 · WhatsApp + agente</a>
+    <a href="#f4" class="nxt">F4 · Fundamentos AI →</a>
   </div>
 
 </section>
 
 <!-- ════════════════════════════════════════════════════════════════════
-     F4 · ENTORNO AI · ANTHROPIC + NOTION (sin costo)
+     F4 · FUNDAMENTOS AI · ANTHROPIC + NOTION · sin costo
      ════════════════════════════════════════════════════════════════════ -->
 <section class="page phase-page" id="f4">
 
   <div class="top">
     <span class="lockup">
-      <span class="kenco-mark" aria-label="Kenco">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1417.32 708.66"><path d="M404.41 263.83h-81.14l-63.44 89.67H258V220.93h-73.2V474.9H258v-85.4h1.83l65.88 85.4h88.46l-86.02-108.58z"></path><path d="M502.3 258.95c-67.71 0-114.68 46.97-114.68 110.41 0 62.22 45.75 111.63 124.44 111.63 54.9 0 80.52-24.4 80.52-24.4l-23.18-45.75s-19.52 14.03-54.29 14.03c-29.28 0-51.24-12.81-56.73-42.09h151.29s.61-7.32.61-15.25c-.01-64.66-40.88-108.58-107.98-108.58zm-43.31 87.84c5.49-23.79 21.35-34.77 42.7-34.77 22.57 0 37.21 15.25 39.65 34.77h-82.35z"></path><path d="M997.71 419.39c-32.33 0-54.9-19.52-54.9-50.02 0-30.5 22.57-50.02 54.9-50.02 25.62 0 42.09 10.98 42.09 10.98l20.74-53.68s-22.57-17.69-69.54-17.69c-73.81 0-122.01 47.58-122.01 110.41 0 62.22 48.19 110.41 122.01 110.41 46.97 0 68.32-17.69 68.32-17.69l-19.52-53.68c.01 0-16.47 10.98-42.09 10.98z"></path><path d="M1175.56 258.95c-65.88 0-119.57 43.92-119.57 111.63 0 66.49 53.68 109.19 119.57 109.19 65.88 0 120.18-42.7 120.18-109.19-.01-67.71-54.3-111.63-120.18-111.63zm0 162.88c-28.67 0-48.19-20.74-48.19-52.46 0-31.11 19.52-52.46 48.19-52.46 29.28 0 48.8 21.35 48.8 52.46 0 31.72-19.52 52.46-48.8 52.46z"></path><path d="M626.31 263.91v210.91h73.09V330.57h80.14v144.25h73.09V330.57l-73.09-66.66z"></path></svg>
-      </span>
+      <span class="kenco-mark" aria-label="Kenco"><svg xmlns="http://www.w3.org/2000/svg" viewBox="180 220 1120 260"><path d="M404.41 263.83h-81.14l-63.44 89.67H258V220.93h-73.2V474.9H258v-85.4h1.83l65.88 85.4h88.46l-86.02-108.58z"/><path d="M502.3 258.95c-67.71 0-114.68 46.97-114.68 110.41 0 62.22 45.75 111.63 124.44 111.63 54.9 0 80.52-24.4 80.52-24.4l-23.18-45.75s-19.52 14.03-54.29 14.03c-29.28 0-51.24-12.81-56.73-42.09h151.29s.61-7.32.61-15.25c-.01-64.66-40.88-108.58-107.98-108.58zm-43.31 87.84c5.49-23.79 21.35-34.77 42.7-34.77 22.57 0 37.21 15.25 39.65 34.77h-82.35z"/><path d="M997.71 419.39c-32.33 0-54.9-19.52-54.9-50.02 0-30.5 22.57-50.02 54.9-50.02 25.62 0 42.09 10.98 42.09 10.98l20.74-53.68s-22.57-17.69-69.54-17.69c-73.81 0-122.01 47.58-122.01 110.41 0 62.22 48.19 110.41 122.01 110.41 46.97 0 68.32-17.69 68.32-17.69l-19.52-53.68c.01 0-16.47 10.98-42.09 10.98z"/><path d="M1175.56 258.95c-65.88 0-119.57 43.92-119.57 111.63 0 66.49 53.68 109.19 119.57 109.19 65.88 0 120.18-42.7 120.18-109.19-.01-67.71-54.3-111.63-120.18-111.63zm0 162.88c-28.67 0-48.19-20.74-48.19-52.46 0-31.11 19.52-52.46 48.19-52.46 29.28 0 48.8 21.35 48.8 52.46 0 31.72-19.52 52.46-48.8 52.46z"/><path d="M626.31 263.91v210.91h73.09V330.57h80.14v144.25h73.09V330.57l-73.09-66.66z"/></svg></span>
       <span class="x">×</span>
       <span class="cresco-mark">crescō<em>.</em></span>
     </span>
-    <a href="#" class="phase-back">← volver al one-pager</a>
+    <a href="#" class="phase-back">← Volver a la propuesta</a>
   </div>
 
   <div class="phase-breadcrumb">
-    propuesta <span class="sep">/</span> fases <span class="sep">/</span> <span class="current">f4 entorno ai · anthropic + notion</span>
+    Propuesta <span class="sep">/</span> Fases <span class="sep">/</span> <span class="current">F4 · Fundamentos AI en lenguaje Kenco</span>
   </div>
 
   <div class="phase-hero">
     <div class="phase-title-row">
       <span class="phase-code-mark">f4/</span>
-      <span class="phase-title">Entorno AI</span>
+      <span class="phase-title">Fundamentos AI en lenguaje Kenco</span>
+      <span class="phase-status">incluido</span>
     </div>
-    <span class="phase-subtitle">Dejamos a Kenco listo para trabajar con AI · ecosistema Anthropic combinado con Notion · 2 semanas · sin costo</span>
+    <span class="phase-subtitle">Entorno técnico para que Kenco trabaje con IA en el día a día · 2 semanas · sin costo</span>
   </div>
 
   <div class="phase-mini-timeline">
     <span class="phase-mini-label">sem 1</span>
-    <div class="phase-mini-bar"><div class="phase-mini-fill" style="left: 72.72%; width: 9.09%;"></div></div>
-    <span class="phase-mini-label cur">sem 17–18</span>
+    <div class="phase-mini-bar"><div class="phase-mini-fill dim" style="left:75%;width:10%;"></div></div>
+    <span class="phase-mini-label cur">sem 16–17</span>
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">qué hacemos</div>
+    <div class="phase-section-lbl">¿Qué hacemos?</div>
     <div class="phase-section-body">
       Dejamos preparado el entorno de trabajo para que Kenco saque máximo provecho del <strong>ecosistema Anthropic</strong> (Claude, Claude Code, Cowork, Claude Design) en el día a día. Conectamos las herramientas con los sistemas reales de Kenco para que la AI no solo opine, sino que ejecute. <strong>Sugerimos combinar este ecosistema con Notion</strong> como espacio único para reuniones, tareas y metas — entregamos plantillas listas para arrancar.
     </div>
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">por qué importa</div>
+    <div class="phase-section-lbl">¿Por qué importa?</div>
     <div class="phase-section-body">
       Las herramientas de AI rinden cuando viven dentro de un entorno bien armado. <strong>Sin esa base, Claude se queda en consejos genéricos; con ella, se vuelve un colaborador real</strong> que ejecuta tareas, busca información, redacta presupuestos y hace seguimiento. <strong>Notion como capa de memoria organizacional</strong> asegura que las decisiones, reuniones y aprendizajes no se pierdan en chats sueltos.
     </div>
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">entregables</div>
+    <div class="phase-section-lbl">Entregables</div>
     <div class="phase-section-body">
       <ul>
         <li>Ecosistema Anthropic configurado y operativo en Kenco</li>
@@ -1627,76 +1569,75 @@
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">cuando está listo</div>
+    <div class="phase-section-lbl">¿Cuándo está listo?</div>
     <div class="phase-section-body">
-      <strong>Entorno Anthropic operativo y workspace Notion entregado</strong> con plantillas listas. Kenco recibe accesos, comandos personalizados y guía de uso — listo para que f5 (formación) aterrice sobre algo concreto.
+      <strong>Entorno Anthropic operativo y workspace Notion entregado</strong> con plantillas listas. Kenco recibe accesos, comandos personalizados y guía de uso — listo para que F5 (formación) aterrice sobre algo concreto.
     </div>
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">inversión</div>
+    <div class="phase-section-lbl">Inversión</div>
     <div class="phase-section-body">
       <strong>Sin costo.</strong> Incluido en el alcance del proyecto. <em>Nota:</em> el presupuesto cubre el setup y las plantillas iniciales — <strong>no contempla la integración técnica entre Notion y el resto del sistema Kenco</strong>.
     </div>
   </div>
 
   <div class="phase-nav">
-    <a href="#f3" class="prev">← f3 imprenta digital</a>
-    <a href="#f5" class="nxt">f5 cierre + formación →</a>
+    <a href="#f3" class="prev">← F3 · Imprenta digital</a>
+    <a href="#f5" class="nxt">F5 · Cierre + formación →</a>
   </div>
 
 </section>
 
 <!-- ════════════════════════════════════════════════════════════════════
-     F5 · CIERRE + FORMACIÓN (sin costo)
+     F5 · CIERRE + FORMACIÓN · sin costo
      ════════════════════════════════════════════════════════════════════ -->
 <section class="page phase-page" id="f5">
 
   <div class="top">
     <span class="lockup">
-      <span class="kenco-mark" aria-label="Kenco">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1417.32 708.66"><path d="M404.41 263.83h-81.14l-63.44 89.67H258V220.93h-73.2V474.9H258v-85.4h1.83l65.88 85.4h88.46l-86.02-108.58z"></path><path d="M502.3 258.95c-67.71 0-114.68 46.97-114.68 110.41 0 62.22 45.75 111.63 124.44 111.63 54.9 0 80.52-24.4 80.52-24.4l-23.18-45.75s-19.52 14.03-54.29 14.03c-29.28 0-51.24-12.81-56.73-42.09h151.29s.61-7.32.61-15.25c-.01-64.66-40.88-108.58-107.98-108.58zm-43.31 87.84c5.49-23.79 21.35-34.77 42.7-34.77 22.57 0 37.21 15.25 39.65 34.77h-82.35z"></path><path d="M997.71 419.39c-32.33 0-54.9-19.52-54.9-50.02 0-30.5 22.57-50.02 54.9-50.02 25.62 0 42.09 10.98 42.09 10.98l20.74-53.68s-22.57-17.69-69.54-17.69c-73.81 0-122.01 47.58-122.01 110.41 0 62.22 48.19 110.41 122.01 110.41 46.97 0 68.32-17.69 68.32-17.69l-19.52-53.68c.01 0-16.47 10.98-42.09 10.98z"></path><path d="M1175.56 258.95c-65.88 0-119.57 43.92-119.57 111.63 0 66.49 53.68 109.19 119.57 109.19 65.88 0 120.18-42.7 120.18-109.19-.01-67.71-54.3-111.63-120.18-111.63zm0 162.88c-28.67 0-48.19-20.74-48.19-52.46 0-31.11 19.52-52.46 48.19-52.46 29.28 0 48.8 21.35 48.8 52.46 0 31.72-19.52 52.46-48.8 52.46z"></path><path d="M626.31 263.91v210.91h73.09V330.57h80.14v144.25h73.09V330.57l-73.09-66.66z"></path></svg>
-      </span>
+      <span class="kenco-mark" aria-label="Kenco"><svg xmlns="http://www.w3.org/2000/svg" viewBox="180 220 1120 260"><path d="M404.41 263.83h-81.14l-63.44 89.67H258V220.93h-73.2V474.9H258v-85.4h1.83l65.88 85.4h88.46l-86.02-108.58z"/><path d="M502.3 258.95c-67.71 0-114.68 46.97-114.68 110.41 0 62.22 45.75 111.63 124.44 111.63 54.9 0 80.52-24.4 80.52-24.4l-23.18-45.75s-19.52 14.03-54.29 14.03c-29.28 0-51.24-12.81-56.73-42.09h151.29s.61-7.32.61-15.25c-.01-64.66-40.88-108.58-107.98-108.58zm-43.31 87.84c5.49-23.79 21.35-34.77 42.7-34.77 22.57 0 37.21 15.25 39.65 34.77h-82.35z"/><path d="M997.71 419.39c-32.33 0-54.9-19.52-54.9-50.02 0-30.5 22.57-50.02 54.9-50.02 25.62 0 42.09 10.98 42.09 10.98l20.74-53.68s-22.57-17.69-69.54-17.69c-73.81 0-122.01 47.58-122.01 110.41 0 62.22 48.19 110.41 122.01 110.41 46.97 0 68.32-17.69 68.32-17.69l-19.52-53.68c.01 0-16.47 10.98-42.09 10.98z"/><path d="M1175.56 258.95c-65.88 0-119.57 43.92-119.57 111.63 0 66.49 53.68 109.19 119.57 109.19 65.88 0 120.18-42.7 120.18-109.19-.01-67.71-54.3-111.63-120.18-111.63zm0 162.88c-28.67 0-48.19-20.74-48.19-52.46 0-31.11 19.52-52.46 48.19-52.46 29.28 0 48.8 21.35 48.8 52.46 0 31.72-19.52 52.46-48.8 52.46z"/><path d="M626.31 263.91v210.91h73.09V330.57h80.14v144.25h73.09V330.57l-73.09-66.66z"/></svg></span>
       <span class="x">×</span>
       <span class="cresco-mark">crescō<em>.</em></span>
     </span>
-    <a href="#" class="phase-back">← volver al one-pager</a>
+    <a href="#" class="phase-back">← Volver a la propuesta</a>
   </div>
 
   <div class="phase-breadcrumb">
-    propuesta <span class="sep">/</span> fases <span class="sep">/</span> <span class="current">f5 cierre + formación</span>
+    Propuesta <span class="sep">/</span> Fases <span class="sep">/</span> <span class="current">F5 · Cierre + formación</span>
   </div>
 
   <div class="phase-hero">
     <div class="phase-title-row">
       <span class="phase-code-mark">f5/</span>
       <span class="phase-title">Cierre + formación</span>
+      <span class="phase-status">incluido</span>
     </div>
-    <span class="phase-subtitle">Adopción real del ecosistema Anthropic en Kenco · 4 semanas · sin costo</span>
+    <span class="phase-subtitle">Adopción real del ecosistema Anthropic en Kenco · 3 semanas · sin costo</span>
   </div>
 
   <div class="phase-mini-timeline">
     <span class="phase-mini-label">sem 1</span>
-    <div class="phase-mini-bar"><div class="phase-mini-fill" style="left: 81.81%; width: 18.18%;"></div></div>
-    <span class="phase-mini-label cur">sem 19–22</span>
+    <div class="phase-mini-bar"><div class="phase-mini-fill dim" style="left:85%;width:15%;"></div></div>
+    <span class="phase-mini-label cur">sem 18–20</span>
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">qué hacemos</div>
+    <div class="phase-section-lbl">¿Qué hacemos?</div>
     <div class="phase-section-body">
-      <strong>Capacitación operativa</strong> del equipo Kenco en el ecosistema Anthropic (Claude, Claude Code, Cowork, Claude Design). Construcción de un <strong>set de skills internos</strong> para que el equipo extienda el sistema solo. Handoff técnico documentado y plan de evolución sugerido.
+      <strong>Capacitación operativa</strong> del equipo Kenco en el ecosistema Anthropic (Claude, Claude Code, Cowork, Claude Design). Construcción de un <strong>set de skills internas</strong> para que el equipo extienda el sistema solo. Handoff técnico documentado y plan de evolución sugerido.
     </div>
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">por qué importa</div>
+    <div class="phase-section-lbl">¿Por qué importa?</div>
     <div class="phase-section-body">
       Sin adopción, ningún sistema sobrevive. <strong>Garantizamos que Kenco evolucione la plataforma de forma autónoma</strong> y aproveche el ecosistema Anthropic en su día a día — no solo en este proyecto, sino en todo lo que venga después.
     </div>
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">entregables</div>
+    <div class="phase-section-lbl">Entregables</div>
     <div class="phase-section-body">
       <ul>
         <li>8 sesiones de formación (operativa + planta + dirección)</li>
@@ -1709,22 +1650,22 @@
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">cuando está listo</div>
+    <div class="phase-section-lbl">¿Cuándo está listo?</div>
     <div class="phase-section-body">
-      <strong>Equipo Kenco certificado</strong> y <strong>sistema operando autónomamente</strong> sin dependencia de cresco para tareas del día a día.
+      <strong>Equipo Kenco certificado</strong> y <strong>sistema operando autónomamente</strong> sin dependencia de crescō para tareas del día a día.
     </div>
   </div>
 
   <div class="phase-section">
-    <div class="phase-section-lbl">inversión</div>
+    <div class="phase-section-lbl">Inversión</div>
     <div class="phase-section-body">
       <strong>Sin costo.</strong> La formación final está incluida en el alcance del proyecto.
     </div>
   </div>
 
   <div class="phase-nav">
-    <a href="#f4" class="prev">← f4 entorno ai</a>
-    <a href="#" class="nxt">volver a propuesta →</a>
+    <a href="#f4" class="prev">← F4 · Fundamentos AI</a>
+    <a href="#" class="nxt">Volver a la propuesta →</a>
   </div>
 
 </section>
